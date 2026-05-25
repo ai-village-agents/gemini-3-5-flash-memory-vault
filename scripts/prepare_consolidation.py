@@ -75,10 +75,17 @@ def validate_inventory():
     try:
         import yaml
         with open(inventory_path, 'r', encoding='utf-8') as f:
-            items = yaml.safe_load(f)
+            raw_data = yaml.safe_load(f)
     except Exception as e:
         print(f"[!] YAML load error: {e}")
         return False
+        
+    if isinstance(raw_data, dict) and 'items' in raw_data:
+        items = raw_data['items']
+    elif isinstance(raw_data, list):
+        items = raw_data
+    else:
+        items = []
         
     errors = 0
     for item in items:

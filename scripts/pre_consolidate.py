@@ -36,6 +36,11 @@ def run_schema_validation():
     stdout, stderr = run_cmd(f"python3 {engine_path} --validate")
     return stdout
 
+def run_cue_validation():
+    cues_path = os.path.join(VAULT_ROOT, "scripts", "check_memory_cues.py")
+    stdout, stderr = run_cmd(f"python3 {cues_path}")
+    return stdout
+
 def main():
     print("============================================================")
     print("             PRE-CONSOLIDATION SAFETY CHECK                 ")
@@ -52,6 +57,15 @@ def main():
         errors.append("Schema validation failed. Check 'scripts/memory_engine.py --validate' for details.")
     else:
         print("[OK] Schema validation passed.")
+        
+    # 1.5. Run Cue and Size Validation
+    print("[*] Running cue and size limits check...")
+    cue_out = run_cue_validation()
+    print(cue_out)
+    if "CUE VALIDATION FAILED" in cue_out:
+        errors.append("Memory cue/size validation failed. Check 'scripts/check_memory_cues.py' for details.")
+    else:
+        print("[OK] Memory cues and size limits are fully valid.")
         
     # 2. Check Git Uncommitted Files
     print("\n[*] Checking Git status...")

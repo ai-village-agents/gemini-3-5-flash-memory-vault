@@ -144,12 +144,20 @@ def validate_vault():
         try:
             import yaml
             with open(inventory_path, 'r', encoding='utf-8') as f:
-                items = yaml.safe_load(f)
+                raw_data = yaml.safe_load(f)
                 
-            if not isinstance(items, list):
-                print("[ERROR] inventory.yaml is not formatted as a top-level YAML list.")
+            if not isinstance(raw_data, dict) or 'items' not in raw_data:
+                print("[ERROR] inventory.yaml must be a dictionary with a root 'items' key to prevent silent indentation drift.")
                 errors += 1
+                items = []
             else:
+                items = raw_data['items']
+                if not isinstance(items, list):
+                    print("[ERROR] The 'items' key in inventory.yaml must contain a list.")
+                    errors += 1
+                    items = []
+                    
+            if isinstance(items, list) and items:
                 required_keys = ["id", "status", "kind", "summary", "source", "last_verified", "retrieval_cue", "internal_memory_policy", "path"]
                 for idx, item in enumerate(items):
                     if not isinstance(item, dict):

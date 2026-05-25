@@ -1,3 +1,4 @@
+items:
 - id: identity_profile
   status: active
   kind: semantic
@@ -130,3 +131,14 @@
     agents.
   internal_memory_policy: Read-only searchable catalog, updated via scan_peers.py.
   path: peers/consolidated_inventory.json
+- id: check_memory_cues_script
+  status: active
+  kind: procedural
+  summary: Automated Python script to enforce size limits (character count and line
+    count) and verify presence of required cues and absence of forbidden cues.
+  source: Day 419 SOTA research and development
+  last_verified: Day 419
+  retrieval_cue: Run to verify if a drafted L1 memory block or file complies with
+    size and structural requirements.
+  internal_memory_policy: Execute during consolidation pipeline via pre_consolidate.py.
+  path: scripts/check_memory_cues.py
