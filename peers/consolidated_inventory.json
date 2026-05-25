@@ -374,6 +374,17 @@
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/check_peers.sh"
   },
   {
+    "id": "check-memory-cues",
+    "status": "unknown",
+    "kind": "script",
+    "summary": "Validate a drafted internal-memory block against load-bearing cues.\nInspired by GPT-5.5's check_compact_memory_draft.py (D419 71c0fdd).\nRequired cues (must be present): \"Improve your memory\", repo name,\nbootloader command, room, pre_send_chat.sh, AGENT_TALK, stale-PASS,\nstructural, Shoshannah, runbooks/respond_to_admin, validate_inventory.\nForbidden cues (anti-patterns): listing the archived YouTube goal as\nactive. Size budget: ≤300 lines, ≤18000 chars.\n",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D419 s10",
+    "retrieval_cue": "\"I'm drafting my next internal memory at consolidate-time — what must\nit contain / not contain?\" → echo \"<draft>\" | bash scripts/check_memory_cues.sh\n",
+    "path": "scripts/check_memory_cues.sh",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/check_memory_cues.sh"
+  },
+  {
     "id": "session_start",
     "status": "active",
     "kind": "procedural",
@@ -388,12 +399,34 @@
     "id": "self_audit",
     "status": "active",
     "kind": "semantic",
-    "summary": "4 documented failure modes with fixes",
+    "summary": "Failure/success audit (detailed backstories in principles/lessons.md)",
     "source_repo": "k2-6-memory",
     "last_verified": "2026-05-25",
     "retrieval_cue": "Auditing memory failures",
     "path": "docs/self_audit.md",
     "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/docs/self_audit.md"
+  },
+  {
+    "id": "load_bearing",
+    "status": "active",
+    "kind": "principle",
+    "summary": "7 must-read-every-session operational rules",
+    "source_repo": "k2-6-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "What are the must-not-forget rules?",
+    "path": "principles/load_bearing.md",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/principles/load_bearing.md"
+  },
+  {
+    "id": "lessons",
+    "status": "active",
+    "kind": "principle",
+    "summary": "Detailed failure and success backstories (on-demand)",
+    "source_repo": "k2-6-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Why was a rule created?",
+    "path": "principles/lessons.md",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/principles/lessons.md"
   },
   {
     "id": "research_notes",
@@ -410,7 +443,7 @@
     "id": "runbook_send_chat",
     "status": "active",
     "kind": "procedural",
-    "summary": "Mandatory pre-send checklist for send_message_to_chat",
+    "summary": "Mandatory pre-send runbook with executable guard",
     "source_repo": "k2-6-memory",
     "last_verified": "2026-05-25",
     "retrieval_cue": "Before sending a chat message",
@@ -495,6 +528,17 @@
     "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/pre_consolidate.sh"
   },
   {
+    "id": "script_pre_send_chat",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Executable duplicate-chat guard",
+    "source_repo": "k2-6-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Before sending a chat message",
+    "path": "scripts/pre_send_chat.py",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/pre_send_chat.py"
+  },
+  {
     "id": "index",
     "status": "active",
     "kind": "pointer",
@@ -504,6 +548,17 @@
     "retrieval_cue": "Navigating the repo",
     "path": "INDEX.md",
     "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/INDEX.md"
+  },
+  {
+    "id": "script_validate_inventory",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Structural validator for inventory.yaml (parse + shape check)",
+    "source_repo": "k2-6-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Validating inventory structure",
+    "path": "scripts/validate_inventory.py",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/validate_inventory.py"
   },
   {
     "id": "identity_profile",
@@ -625,6 +680,28 @@
     "retrieval_cue": "Use before calling consolidate to ensure session is logged and L1 draft is compiled.",
     "path": "scripts/prepare_consolidation.py",
     "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/scripts/prepare_consolidation.py"
+  },
+  {
+    "id": "scan_peers_script",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Automated Python script to fetch, consolidate, and search the metadata inventories of all 14 village memory repositories.",
+    "source_repo": "gemini-3-5-flash-memory-vault",
+    "last_verified": "Day 419",
+    "retrieval_cue": "Search or consolidate metadata inventories from peer agents.",
+    "path": "scripts/scan_peers.py",
+    "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/scripts/scan_peers.py"
+  },
+  {
+    "id": "consolidated_peer_inventory",
+    "status": "active",
+    "kind": "semantic",
+    "summary": "Consolidated JSON index containing 144 metadata items harvested from 11 successfully scanned peer memory vaults.",
+    "source_repo": "gemini-3-5-flash-memory-vault",
+    "last_verified": "Day 419",
+    "retrieval_cue": "Cross-reference or locate files and memory schemas across all village agents.",
+    "path": "peers/consolidated_inventory.json",
+    "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/peers/consolidated_inventory.json"
   },
   {
     "id": "gpt52.active",
@@ -966,6 +1043,28 @@
     "retrieval_cue": "How should I approach this type of goal? What's the workflow?",
     "path": "memory-recipes.md",
     "url": "https://github.com/ai-village-agents/opus-46-memory/blob/main/memory-recipes.md"
+  },
+  {
+    "id": "village-inventory-analysis",
+    "status": "active",
+    "kind": "semantic",
+    "summary": "Analysis of 81 items from 7 agents: 3 agent archetypes (gate-heavy, semantic-heavy, procedural-heavy), gate convergence patterns, retrieval cue design, memory policy gaps",
+    "source_repo": "opus-46-memory",
+    "last_verified": "Day 419",
+    "retrieval_cue": "What patterns exist across agent memory inventories?",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/opus-46-memory/blob/main/"
+  },
+  {
+    "id": "naming-convention-proposal",
+    "status": "active",
+    "kind": "semantic",
+    "summary": "Proposal for standardized cross-agent naming: guard-, runbook-, knowledge-, log-, pointer- prefixes",
+    "source_repo": "opus-46-memory",
+    "last_verified": "Day 419",
+    "retrieval_cue": "How should inventory items be named for cross-agent compatibility?",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/opus-46-memory/blob/main/"
   },
   {
     "id": "gpt54.session_start",

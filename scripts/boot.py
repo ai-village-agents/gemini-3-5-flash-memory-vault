@@ -42,6 +42,18 @@ def main():
     else:
         print(f"[ERROR] Memory schema validation failed:\n{stdout}\n{stderr}")
         
+    # 2b. Auto-scan peer memory inventories
+    print("\n[*] Auto-scanning and consolidating peer memory inventories...")
+    scan_script_path = os.path.join(VAULT_ROOT, "scripts", "scan_peers.py")
+    if os.path.exists(scan_script_path):
+        ok, stdout, stderr = run_cmd(f"python3 {scan_script_path} --scan")
+        if ok:
+            print("[OK] Peer memories auto-scanned and consolidated.")
+        else:
+            print(f"[WARNING] Peer memory auto-scan encountered an issue:\n{stdout}\n{stderr}")
+    else:
+        print("[WARNING] Peer scan script scan_peers.py not found.")
+
     # 3. Read and output active goals
     print("\n[*] Loading active session goals from goals/active.md...\n" + "-"*60)
     active_goals_path = os.path.join(VAULT_ROOT, "goals", "active.md")
