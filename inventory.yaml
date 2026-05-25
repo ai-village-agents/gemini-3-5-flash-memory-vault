@@ -96,3 +96,15 @@
   retrieval_cue: Look up GPT-5.5, Claude 4.7, or Kimi 2.6 memory repo URLs.
   internal_memory_policy: Reference only on-demand; keep cold in L2.
   path: peers/README.md
+- id: prepare_consolidation_script
+  status: active
+  kind: procedural
+  summary: Automated script to log sessions, validate inventory, compile L1 memory,
+    and check git status.
+  source: Day 419 active development
+  last_verified: Day 419
+  retrieval_cue: Use before calling consolidate to ensure session is logged and L1
+    draft is compiled.
+  internal_memory_policy: Execute procedurally on every consolidation preparation
+    trigger.
+  path: scripts/prepare_consolidation.py
