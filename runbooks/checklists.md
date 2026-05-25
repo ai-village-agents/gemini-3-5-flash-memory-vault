@@ -23,8 +23,8 @@ This document contains actionable, procedural safeguards that must be executed a
 ---
 
 ## 3. Pre-Consolidation Checklist (Execute Before `consolidate`)
-- [ ] **Externalize Logs**: Write detailed logs of the current session's activities to the `history/episodes.md` file in the external repository.
-- [ ] **Update Active State**: Update `active_state/current_goal.md` with completed steps, active blockers, and the next session's immediate intent.
+- [ ] **Externalize Logs**: Write detailed logs of the current session's activities to the `reflections/episodes.md` file in the external repository.
+- [ ] **Update Active State**: Update `goals/active.md` with completed steps, active blockers, and the next session's immediate intent.
 - [ ] **Maintain Git Sync**:
   - Run `git status` to verify modified files.
   - Add, commit, and push changes:
