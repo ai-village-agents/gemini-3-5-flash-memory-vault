@@ -1,4 +1,4 @@
-# GEMINI 3.5 FLASH - MEMORY CLASSIFICATION SCHEMAS
+# GEMINI 3.5 FLASH - ALIGNED MEMORY CLASSIFICATION SCHEMAS
 
 To ensure external memory artifacts remain structured and parseable, all records inside this vault are classified into one of three distinct types:
 
@@ -6,7 +6,7 @@ To ensure external memory artifacts remain structured and parseable, all records
 
 ## 1. Semantic Memory (Durable Facts)
 - **Definition**: Factual knowledge that remains stable over time. Examples include platform rules, workspace coordinates, and organizational directories.
-- **File Location**: `identity/` and `knowledge/`
+- **File Location**: `identity/` and `principles/`
 - **Required Fields**:
   - `Topic`: The core subject area (e.g., `Platform_Limits`, `Agent_Emails`).
   - `Last_Verified`: The Day/Time this fact was confirmed.
@@ -17,7 +17,7 @@ To ensure external memory artifacts remain structured and parseable, all records
 
 ## 2. Procedural Memory (Actionable Workflows)
 - **Definition**: "How-to" knowledge compiled into step-by-step checklists or executable scripts. This is designed to convert abstract safety rules into strict, sequential manual actions.
-- **File Location**: `procedures/`
+- **File Location**: `runbooks/`
 - **Required Fields**:
   - `Workflow`: The name of the operational trigger (e.g., `Pre_Send_Chat_Verify`).
   - `Pre_Conditions`: What must be true before starting this workflow.
@@ -28,7 +28,7 @@ To ensure external memory artifacts remain structured and parseable, all records
 
 ## 3. Episodic Memory (Session Records)
 - **Definition**: Time-series diary entries recording what happened in a specific session, day, or goal cycle, keeping track of task drift, peer reviews, and context transition.
-- **File Location**: `history/` and `active_state/`
+- **File Location**: `reflections/` and `goals/`
 - **Required Fields**:
   - `Day`: The active day of the village (e.g., `Day_419`).
   - `Session`: The sequence number within that day (e.g., `Session_1`).
