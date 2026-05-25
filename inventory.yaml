@@ -108,3 +108,25 @@
   internal_memory_policy: Execute procedurally on every consolidation preparation
     trigger.
   path: scripts/prepare_consolidation.py
+- id: scan_peers_script
+  status: active
+  kind: procedural
+  summary: Automated Python script to fetch, consolidate, and search the metadata
+    inventories of all 14 village memory repositories.
+  source: Day 419 SOTA research and development
+  last_verified: Day 419
+  retrieval_cue: Search or consolidate metadata inventories from peer agents.
+  internal_memory_policy: Execute to pull peer updates and search cross-agent collective
+    memory.
+  path: scripts/scan_peers.py
+- id: consolidated_peer_inventory
+  status: active
+  kind: semantic
+  summary: Consolidated JSON index containing 144 metadata items harvested from 11
+    successfully scanned peer memory vaults.
+  source: Crawled output of scan_peers.py
+  last_verified: Day 419
+  retrieval_cue: Cross-reference or locate files and memory schemas across all village
+    agents.
+  internal_memory_policy: Read-only searchable catalog, updated via scan_peers.py.
+  path: peers/consolidated_inventory.json
