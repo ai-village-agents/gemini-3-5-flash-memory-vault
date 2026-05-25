@@ -13,6 +13,7 @@ Usage:
 import os
 import re
 import argparse
+import sys
 
 VAULT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -36,7 +37,7 @@ def search_vault(query, case_sensitive=False):
         
         for file in files:
             if not file.endswith('.md'):
-                continue
+                continue\
                 
             file_path = os.path.join(root, file)
             rel_path = os.path.relpath(file_path, VAULT_ROOT)
@@ -90,15 +91,20 @@ def validate_vault():
     for root, dirs, files in os.walk(VAULT_ROOT):
         dirs[:] = [d for d in dirs if not d.startswith('.')]
         for file in files:
-            if not file.endswith('.md'):
+            if not file.endswith('.md') and not file.endswith('.yaml'):
                 continue
             file_path = os.path.join(root, file)
             rel_path = os.path.relpath(file_path, VAULT_ROOT)
+            
+            # Special check for root files like inventory.yaml
+            if os.path.dirname(rel_path) == "":
+                continue
+                
             parent_dir = rel_path.split(os.sep)[0]
             
             if parent_dir not in expected_dirs:
                 if parent_dir != "scripts":
-                    print(f"[WARNING] Markdown file '{rel_path}' is outside the standard taxonomy folders.")
+                    print(f"[WARNING] File '{rel_path}' is outside the standard taxonomy folders.")
                     warnings += 1
                 continue
                 
@@ -131,6 +137,51 @@ def validate_vault():
                 else:
                     print(f"[OK] Episodic Memory file verified: '{rel_path}'")
                     
+    # 3. Check inventory.yaml validity
+    inventory_path = os.path.join(VAULT_ROOT, "inventory.yaml")
+    if os.path.exists(inventory_path):
+        print("\n[*] Validating inventory.yaml metadata index...")
+        try:
+            import yaml
+            with open(inventory_path, 'r', encoding='utf-8') as f:
+                items = yaml.safe_load(f)
+                
+            if not isinstance(items, list):
+                print("[ERROR] inventory.yaml is not formatted as a top-level YAML list.")
+                errors += 1
+            else:
+                required_keys = ["id", "status", "kind", "summary", "source", "last_verified", "retrieval_cue", "internal_memory_policy", "path"]
+                for idx, item in enumerate(items):
+                    if not isinstance(item, dict):
+                        print(f"[ERROR] Item {idx} in inventory.yaml is not a valid dictionary structure.")
+                        errors += 1
+                        continue
+                        
+                    item_id = item.get("id", f"unknown_item_{idx}")
+                    print(f"  - Verifying cataloged item: {item_id}")
+                    
+                    # Check missing keys
+                    missing_keys = [k for k in required_keys if k not in item]
+                    if missing_keys:
+                        print(f"    [ERROR] Item '{item_id}' is missing required keys: {missing_keys}")
+                        errors += 1
+                    
+                    # Check file paths exist
+                    target_path = item.get("path")
+                    if target_path:
+                        full_target_path = os.path.join(VAULT_ROOT, target_path)
+                        if not os.path.exists(full_target_path):
+                            print(f"    [ERROR] Item '{item_id}' references non-existent file path: '{target_path}'")
+                            errors += 1
+                        else:
+                            print(f"    [OK] File path exists: '{target_path}'")
+        except Exception as e:
+            print(f"[ERROR] Failed to parse or validate inventory.yaml: {e}")
+            errors += 1
+    else:
+        print("\n[WARNING] inventory.yaml does not exist. (Recommended for cross-agent compatibility).")
+        warnings += 1
+                    
     print("-" * 60)
     print(f"[*] Validation finished with {errors} errors and {warnings} warnings.")
     return errors == 0
@@ -147,7 +198,9 @@ def main():
     if args.show_checklists:
         show_checklists()
     elif args.validate:
-        validate_vault()
+        success = validate_vault()
+        if not success:
+            sys.exit(1)
     elif args.query:
         search_vault(args.query, args.case_sensitive)
     else:
