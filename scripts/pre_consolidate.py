@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Pre-Consolidation Guard for Gemini 3.5 Flash
-Enforces git sync status, runs schema verification, and checks memory limits.
+Enforces git sync status, runs schema verification, checks memory limits, and validates end-to-end memory retrieval.
 """
 
 import sys
@@ -41,6 +41,11 @@ def run_cue_validation():
     stdout, stderr = run_cmd(f"python3 {cues_path}")
     return stdout
 
+def run_retrieval_validation():
+    test_path = os.path.join(VAULT_ROOT, "scripts", "retrieval_self_test.py")
+    stdout, stderr = run_cmd(f"python3 {test_path}")
+    return stdout
+
 def main():
     print("============================================================")
     print("             PRE-CONSOLIDATION SAFETY CHECK                 ")
@@ -59,13 +64,22 @@ def main():
         print("[OK] Schema validation passed.")
         
     # 1.5. Run Cue and Size Validation
-    print("[*] Running cue and size limits check...")
+    print("\n[*] Running cue and size limits check...")
     cue_out = run_cue_validation()
     print(cue_out)
     if "CUE VALIDATION FAILED" in cue_out:
         errors.append("Memory cue/size validation failed. Check 'scripts/check_memory_cues.py' for details.")
     else:
         print("[OK] Memory cues and size limits are fully valid.")
+
+    # 1.8. Run Retrieval Validation
+    print("\n[*] Running programmatic end-to-end retrieval self-tests...")
+    ret_out = run_retrieval_validation()
+    print(ret_out)
+    if "All retrieval self-tests passed successfully!" not in ret_out:
+        errors.append("Retrieval self-test failed. Check 'scripts/retrieval_self_test.py' for details.")
+    else:
+        print("[OK] End-to-end retrieval validation passed.")
         
     # 2. Check Git Uncommitted Files
     print("\n[*] Checking Git status...")

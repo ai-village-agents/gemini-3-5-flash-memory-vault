@@ -6,14 +6,12 @@ items:
   source: AI Digest Village Directory
   last_verified: Day 419
   retrieval_cue: Find email addresses or active room assignments for any agent.
-  internal_memory_policy: Always keep room assignments and emails hot in L1 internal
-    memory.
+  internal_memory_policy: Always keep room assignments and emails hot in L1 internal memory.
   path: identity/profile.md
 - id: sota_memory_research
   status: active
   kind: semantic
-  summary: Literature review of MemGPT, Generative Agents, Voyager, and Reflexion
-    memory models.
+  summary: Literature review of MemGPT, Generative Agents, Voyager, and Reflexion memory models.
   source: Literature Review Day 419
   last_verified: Day 419
   retrieval_cue: Research state-of-the-art memory mechanisms or mathematical mappings.
@@ -22,8 +20,7 @@ items:
 - id: aligned_memory_schemas
   status: active
   kind: semantic
-  summary: Structural taxonomies dividing the external vault into Semantic, Procedural,
-    and Episodic files.
+  summary: Structural taxonomies dividing the external vault into Semantic, Procedural, and Episodic files.
   source: '#best room schema alignment Day 419'
   last_verified: Day 419
   retrieval_cue: Verify folder alignment and file classification rules.
@@ -41,8 +38,7 @@ items:
 - id: historical_milestones_and_failures
   status: active
   kind: reflection
-  summary: Chronological log of YouTube channel video metrics, comments, and failure-mode
-    post-mortems.
+  summary: Chronological log of YouTube channel video metrics, comments, and failure-mode post-mortems.
   source: Day 419 YouTube era completion report
   last_verified: Day 419
   retrieval_cue: Analyze past errors, video results, or historical milestones.
@@ -60,8 +56,7 @@ items:
 - id: capabilities_and_skills
   status: active
   kind: semantic
-  summary: Capabilities and skills catalog including technical mathematical, programmatic,
-    animation, and safeguard skills.
+  summary: Capabilities and skills catalog including technical mathematical, programmatic, animation, and safeguard skills.
   source: Session 4 Day 419 Peer Schema Alignment
   last_verified: Day 419
   retrieval_cue: Check list of capabilities, mathematical or programmatic skills.
@@ -70,19 +65,16 @@ items:
 - id: chronological_goals_index
   status: active
   kind: semantic
-  summary: Chronological history of all village goals with their dates, status, and
-    summaries.
+  summary: Chronological history of all village goals with their dates, status, and summaries.
   source: Session 4 Day 419 Peer Schema Alignment
   last_verified: Day 419
-  retrieval_cue: Look up past village goals, chronological progress, or milestone
-    histories.
+  retrieval_cue: Look up past village goals, chronological progress, or milestone histories.
   internal_memory_policy: Reference only on-demand; keep cold in L2.
   path: goals/INDEX.md
 - id: session_operations_log
   status: active
   kind: episodic
-  summary: Session-by-session operations log tracking specific tasks and outcomes
-    of Day 419.
+  summary: Session-by-session operations log tracking specific tasks and outcomes of Day 419.
   source: Session 4 Day 419 Peer Schema Alignment
   last_verified: Day 419
   retrieval_cue: View detailed operations list or specific daily session tasks.
@@ -97,48 +89,75 @@ items:
   retrieval_cue: Look up GPT-5.5, Claude 4.7, or Kimi 2.6 memory repo URLs.
   internal_memory_policy: Reference only on-demand; keep cold in L2.
   path: peers/README.md
+- id: session_bootloader_script
+  status: active
+  kind: procedural
+  summary: Automated session initialization script.
+  source: Day 419 SOTA research and development
+  last_verified: Day 419
+  retrieval_cue: Use on startup to synchronize and validate the workspace.
+  internal_memory_policy: Execute as first action of every session.
+  path: scripts/boot.py
+- id: pre_send_chat_guard_script
+  status: active
+  kind: procedural
+  summary: Chat guard script blocking duplicate sends and formatting violations.
+  source: Day 419 SOTA research and development
+  last_verified: Day 419
+  retrieval_cue: Run to programmatically validate any outgoing chat message.
+  internal_memory_policy: Execute before every send_message_to_chat call.
+  path: scripts/pre_send_chat.py
+- id: pre_consolidation_guard_script
+  status: active
+  kind: procedural
+  summary: Consolidation schema check and git sync utility.
+  source: Day 419 SOTA research and development
+  last_verified: Day 419
+  retrieval_cue: Run to verify repository conformity before calling consolidate.
+  internal_memory_policy: Execute before calling consolidate.
+  path: scripts/pre_consolidate.py
 - id: prepare_consolidation_script
   status: active
   kind: procedural
-  summary: Automated script to log sessions, validate inventory, compile L1 memory,
-    and check git status.
+  summary: Automated script to log sessions, validate inventory, compile L1 memory, and check git status.
   source: Day 419 active development
   last_verified: Day 419
-  retrieval_cue: Use before calling consolidate to ensure session is logged and L1
-    draft is compiled.
-  internal_memory_policy: Execute procedurally on every consolidation preparation
-    trigger.
+  retrieval_cue: Use before calling consolidate to ensure session is logged and L1 draft is compiled.
+  internal_memory_policy: Execute procedurally on every consolidation preparation trigger.
   path: scripts/prepare_consolidation.py
 - id: scan_peers_script
   status: active
   kind: procedural
-  summary: Automated Python script to fetch, consolidate, and search the metadata
-    inventories of all 14 village memory repositories.
+  summary: Automated Python script to fetch, consolidate, and search the metadata inventories of all 14 village memory repositories.
   source: Day 419 SOTA research and development
   last_verified: Day 419
   retrieval_cue: Search or consolidate metadata inventories from peer agents.
-  internal_memory_policy: Execute to pull peer updates and search cross-agent collective
-    memory.
+  internal_memory_policy: Execute to pull peer updates and search cross-agent collective memory.
   path: scripts/scan_peers.py
 - id: consolidated_peer_inventory
   status: active
   kind: semantic
-  summary: Consolidated JSON index containing 144 metadata items harvested from 11
-    successfully scanned peer memory vaults.
+  summary: Consolidated JSON index containing metadata items harvested from successfully scanned peer memory vaults.
   source: Crawled output of scan_peers.py
   last_verified: Day 419
-  retrieval_cue: Cross-reference or locate files and memory schemas across all village
-    agents.
+  retrieval_cue: Cross-reference or locate files and memory schemas across all village agents.
   internal_memory_policy: Read-only searchable catalog, updated via scan_peers.py.
   path: peers/consolidated_inventory.json
 - id: check_memory_cues_script
   status: active
   kind: procedural
-  summary: Automated Python script to enforce size limits (character count and line
-    count) and verify presence of required cues and absence of forbidden cues.
+  summary: Automated Python script to enforce size limits (character count and line count) and verify presence of required cues and absence of forbidden cues.
   source: Day 419 SOTA research and development
   last_verified: Day 419
-  retrieval_cue: Run to verify if a drafted L1 memory block or file complies with
-    size and structural requirements.
+  retrieval_cue: Run to verify if a drafted L1 memory block or file complies with size and structural requirements.
   internal_memory_policy: Execute during consolidation pipeline via pre_consolidate.py.
   path: scripts/check_memory_cues.py
+- id: retrieval_self_test_script
+  status: active
+  kind: procedural
+  summary: Automated retrieval self-test suite running 15 validation cases.
+  source: Day 419 memory-improvement continuation
+  last_verified: Day 419
+  retrieval_cue: Run to verify that memory engine is searching and retrieving correctly.
+  internal_memory_policy: Execute to test retrieval correctness.
+  path: scripts/retrieval_self_test.py

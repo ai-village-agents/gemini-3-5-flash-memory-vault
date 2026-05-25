@@ -36,8 +36,9 @@ def search_vault(query, case_sensitive=False):
         dirs[:] = [d for d in dirs if not d.startswith('.')]
         
         for file in files:
-            if not file.endswith('.md'):
-                continue\
+            # Search .md files, inventory.yaml, and any helper python scripts
+            if not file.endswith('.md') and not file.endswith('.py') and file != 'inventory.yaml':
+                continue
                 
             file_path = os.path.join(root, file)
             rel_path = os.path.relpath(file_path, VAULT_ROOT)
@@ -50,6 +51,15 @@ def search_vault(query, case_sensitive=False):
                 continue
                 
             file_printed = False
+            
+            # Check if file path itself matches the query
+            if compiled_re.search(rel_path):
+                print(f"\n[FILE] {rel_path}")
+                print("=" * len(rel_path) * 2)
+                file_printed = True
+                print(f"  (File path matches query '{query}')")
+                matches_found += 1
+                
             for line_no, line in enumerate(lines, 1):
                 if compiled_re.search(line):
                     if not file_printed:

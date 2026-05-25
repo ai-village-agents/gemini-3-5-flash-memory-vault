@@ -38,7 +38,7 @@ This document contains a high-level archival log of completed goals, milestones,
   4. **Video 4 (KV Cache Optimization)**: `https://youtu.be/LVDI3gs9AkY` (4:21) - MQA/GQA architectures, PagedAttention.
   5. **Video 5 (RoPE Position Embeddings)**: `https://youtu.be/rzktJ2c3ES4` (4:34) - Rotational matrix relative distance proofs.
   6. **Video 6 (Quantization)**: `https://youtu.be/SGHlk40QJPM` (4:26) - AWQ co-scaling, GPTQ inverse Hessian updates.
-  7. **Video 7 (DPO vs RLHF Math)**: `https://youtu.be/KnSJTmHpodc` (3:58) - Closed-form Bradley-Terry preference loss formulation.
+  7. **Video 7 (Direct Preference Optimization - DPO vs RLHF Math)**: `https://youtu.be/KnSJTmHpodc` (3:58) - Closed-form Bradley-Terry preference loss formulation.
   8. **Video 8 (LoRA and QLoRA)**: `https://youtu.be/QW2NqD2Ntpk` (4:07) - Parameter decomposition & NF4 quantization.
   9. **Video 9 (Context Window Scaling)**: `https://youtu.be/2KCF5xuGIvQ` (4:26) - ALiBi slopes, YaRN multi-band interpolation, CoPE.
   10. **Video 10 (State Space Models)**: `https://youtu.be/3C-MzDA_gNY` (4:08) - Continuous Kalman filters, selective scan, Mamba-2 SSD duality.

@@ -88,6 +88,28 @@
     "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/logs/retired_goals_index.md"
   },
   {
+    "id": "memory-metrics-procedure",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Use scripts/memory_metrics.py for a quick non-authoritative summary of compact-draft size, inventory distribution, guard presence, and retrieval affordances.",
+    "source_repo": "gpt-5-5-memory-improvement",
+    "last_verified": "Day 419 metrics helper addition",
+    "retrieval_cue": "When evaluating whether the external memory system remains compact, indexed, and executable without reading every doc.",
+    "path": "scripts/memory_metrics.py",
+    "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/scripts/memory_metrics.py"
+  },
+  {
+    "id": "retrieval-self-test-procedure",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Use scripts/retrieval_self_test.py to test whether realistic memory questions retrieve expected answers through inventory, search, and canonical files.",
+    "source_repo": "gpt-5-5-memory-improvement",
+    "last_verified": "Day 419 retrieval self-test addition",
+    "retrieval_cue": "When structural validation passes but I need to know whether future sessions can actually find the right memory.",
+    "path": "scripts/retrieval_self_test.py",
+    "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/scripts/retrieval_self_test.py"
+  },
+  {
     "id": "active-memory-goal-d419",
     "status": "active",
     "kind": "working",
@@ -265,7 +287,7 @@
   },
   {
     "id": "search-memory-script",
-    "status": "unknown",
+    "status": "active",
     "kind": "procedural",
     "summary": "Grep-based keyword search across the whole memory repo with optional\n--files-only and --kind {reflection,runbook,goal,all} filters. Capped\nat 120 lines of output.\n",
     "source_repo": "claude-opus-4-7-memory",
@@ -276,7 +298,7 @@
   },
   {
     "id": "peers-catalog",
-    "status": "unknown",
+    "status": "active",
     "kind": "semantic",
     "summary": "Catalog of peer #best agents — repo URLs, last-known HEADs, schema notes,\ncross-agent agreements, and a refresh command snippet.\n",
     "source_repo": "claude-opus-4-7-memory",
@@ -287,7 +309,7 @@
   },
   {
     "id": "skills-catalog",
-    "status": "unknown",
+    "status": "active",
     "kind": "semantic",
     "summary": "Catalog of capabilities — scaffolding tools, CLIs, browsers, persistence,\nnetwork, what I cannot do, and high-leverage patterns established.\n",
     "source_repo": "claude-opus-4-7-memory",
@@ -298,7 +320,7 @@
   },
   {
     "id": "goals-index",
-    "status": "unknown",
+    "status": "active",
     "kind": "semantic",
     "summary": "Chronological roll of every village goal — active + archived + convention\nfor transitions. Cross-references goals/active.md and goals/archive/.\n",
     "source_repo": "claude-opus-4-7-memory",
@@ -309,7 +331,7 @@
   },
   {
     "id": "daily-log",
-    "status": "unknown",
+    "status": "active",
     "kind": "episodic",
     "summary": "One-line-per-session ultra-compressed log for fast \"what happened recently\"\nglance. Format: D<day> s<session> (HH:MM PT) — <30-word summary>. [commit]\n",
     "source_repo": "claude-opus-4-7-memory",
@@ -320,7 +342,7 @@
   },
   {
     "id": "meta-reflection",
-    "status": "unknown",
+    "status": "active",
     "kind": "semantic",
     "summary": "Synthesis layer over per-session reflections. Captures cross-session\npatterns (7 patterns from D419 s1–s7) that don't show up from any single\nreflection. Includes promotion path for new patterns. Inspired by\nGenerative Agents reflection layer (Park et al. 2023).\n",
     "source_repo": "claude-opus-4-7-memory",
@@ -331,7 +353,7 @@
   },
   {
     "id": "bash-safety-runbook",
-    "status": "unknown",
+    "status": "active",
     "kind": "procedural",
     "summary": "Pre-call checklist for the bash tool. Adapted from Kimi K2.6's\nrunbooks/bash_command.md (D419) with my own gotchas\n(codex 300s timeout, seq -w not zero-padding, heredoc quoting).\n",
     "source_repo": "claude-opus-4-7-memory",
@@ -342,7 +364,7 @@
   },
   {
     "id": "use-computer-safety-runbook",
-    "status": "unknown",
+    "status": "active",
     "kind": "procedural",
     "summary": "Pre-action checklist for GUI tool calls. Adapted from Kimi K2.6's\nrunbooks/use_computer.md (D419) with my YouTube-flow specifics\n(GTK file picker ENTER not double-click, dialog Ctrl+- zoom, etc.).\n",
     "source_repo": "claude-opus-4-7-memory",
@@ -353,7 +375,7 @@
   },
   {
     "id": "memory-smoke-test",
-    "status": "unknown",
+    "status": "active",
     "kind": "gate",
     "summary": "Codifies \"is my memory system healthy?\" — 59 invariants covering\ncore file presence, scripts, runbooks, inventory validation, git\nstate, boot.sh output sections, lessons.md L1-L10, load_bearing\nrules 0-7. Exits non-zero on any FAIL. Inspired by GPT-5.5's\nscripts/memory_smoke_test.py.\n",
     "source_repo": "claude-opus-4-7-memory",
@@ -364,7 +386,7 @@
   },
   {
     "id": "check-peers",
-    "status": "unknown",
+    "status": "active",
     "kind": "script",
     "summary": "One-command wrapper around `gh api repos/.../commits` for the three\n#best peers (GPT-5.5, Gemini 3.5 Flash, Kimi K2.6). Prints last N\ncommits per repo (default N=3). Eliminates the inline escaping\nfoot-gun of running the command from internal memory.\n",
     "source_repo": "claude-opus-4-7-memory",
@@ -375,7 +397,7 @@
   },
   {
     "id": "check-memory-cues",
-    "status": "unknown",
+    "status": "active",
     "kind": "script",
     "summary": "Validate a drafted internal-memory block against load-bearing cues.\nInspired by GPT-5.5's check_compact_memory_draft.py (D419 71c0fdd).\nRequired cues (must be present): \"Improve your memory\", repo name,\nbootloader command, room, pre_send_chat.sh, AGENT_TALK, stale-PASS,\nstructural, Shoshannah, runbooks/respond_to_admin, validate_inventory.\nForbidden cues (anti-patterns): listing the archived YouTube goal as\nactive. Size budget: ≤300 lines, ≤18000 chars.\n",
     "source_repo": "claude-opus-4-7-memory",
@@ -383,6 +405,17 @@
     "retrieval_cue": "\"I'm drafting my next internal memory at consolidate-time — what must\nit contain / not contain?\" → echo \"<draft>\" | bash scripts/check_memory_cues.sh\n",
     "path": "scripts/check_memory_cues.sh",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/check_memory_cues.sh"
+  },
+  {
+    "id": "retrieval-self-test",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Validates memory retrieval works end-to-end. 23 fixed tests across query_inventory.sh, search_memory.sh, and direct cat. Catches inventory drift, missing files, broken cues. Run before/after major memory changes.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D419 s11",
+    "retrieval_cue": "before/after consolidate; when adding/moving inventory items; when query_inventory or search_memory yield surprising results.",
+    "path": "scripts/retrieval_self_test.sh",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/retrieval_self_test.sh"
   },
   {
     "id": "session_start",
@@ -561,6 +594,39 @@
     "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/validate_inventory.py"
   },
   {
+    "id": "script_check_peers",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Print last N commits for each #best peer repo",
+    "source_repo": "k2-6-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Checking peer repo activity",
+    "path": "scripts/check_peers.sh",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/check_peers.sh"
+  },
+  {
+    "id": "reflections_meta",
+    "status": "active",
+    "kind": "reflection",
+    "summary": "Cross-session pattern synthesis (META.md)",
+    "source_repo": "k2-6-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "What patterns hold across sessions?",
+    "path": "reflections/META.md",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/reflections/META.md"
+  },
+  {
+    "id": "script_check_memory_cues",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Compact internal-memory draft validator (required/forbidden cues + size budget)",
+    "source_repo": "k2-6-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Before consolidating — validate memory draft",
+    "path": "scripts/check_memory_cues.sh",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/check_memory_cues.sh"
+  },
+  {
     "id": "identity_profile",
     "status": "active",
     "kind": "semantic",
@@ -702,6 +768,17 @@
     "retrieval_cue": "Cross-reference or locate files and memory schemas across all village agents.",
     "path": "peers/consolidated_inventory.json",
     "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/peers/consolidated_inventory.json"
+  },
+  {
+    "id": "check_memory_cues_script",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Automated Python script to enforce size limits (character count and line count) and verify presence of required cues and absence of forbidden cues.",
+    "source_repo": "gemini-3-5-flash-memory-vault",
+    "last_verified": "Day 419",
+    "retrieval_cue": "Run to verify if a drafted L1 memory block or file complies with size and structural requirements.",
+    "path": "scripts/check_memory_cues.py",
+    "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/scripts/check_memory_cues.py"
   },
   {
     "id": "gpt52.active",
@@ -1067,6 +1144,72 @@
     "url": "https://github.com/ai-village-agents/opus-46-memory/blob/main/"
   },
   {
+    "id": "failure-prevention-analysis",
+    "status": "active",
+    "kind": "reflection",
+    "summary": "Maps 6 past failures to current memory improvements — 4/6 fully prevented, 2/6 partially mitigated",
+    "source_repo": "opus-46-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Would the new memory system have prevented past mistakes?",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/opus-46-memory/blob/main/"
+  },
+  {
+    "id": "goal-24-final-summary",
+    "status": "active",
+    "kind": "episodic",
+    "summary": "Complete arc of Goal 24 accomplishments: 38 files, 10 scripts, 71 commits, metrics, insights",
+    "source_repo": "opus-46-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "What did I accomplish during the memory improvement goal?",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/opus-46-memory/blob/main/"
+  },
+  {
+    "id": "lean-memory-draft",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Pre-drafted 2793-char internal memory template for post-goal transition — 65% reduction",
+    "source_repo": "opus-46-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "What should my lean internal memory look like after goal transition?",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/opus-46-memory/blob/main/"
+  },
+  {
+    "id": "goal-transition-prep-day420",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Checklist for clean goal transition: what to keep, archive, and add in internal memory",
+    "source_repo": "opus-46-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "How do I transition to the next goal cleanly?",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/opus-46-memory/blob/main/"
+  },
+  {
+    "id": "naming-convention-v2",
+    "status": "active",
+    "kind": "semantic",
+    "summary": "Village naming convention v2: pre- for gates, runbook- for procedures, principles- for semantic — based on 96% organic convergence",
+    "source_repo": "opus-46-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "What naming convention should inventory items follow?",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/opus-46-memory/blob/main/"
+  },
+  {
+    "id": "memory-meta-lessons",
+    "status": "active",
+    "kind": "semantic",
+    "summary": "Distilled operational guidance from 11 sessions: bootloader pattern, executable > declarative, compression lessons, anti-patterns",
+    "source_repo": "opus-46-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "What are the key takeaways from memory improvement work?",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/opus-46-memory/blob/main/"
+  },
+  {
     "id": "gpt54.session_start",
     "status": "active",
     "kind": "procedural",
@@ -1100,6 +1243,17 @@
     "url": "https://github.com/ai-village-agents/gpt-5-4-memory-kit/blob/main/"
   },
   {
+    "id": "gpt54.prepare_consolidation",
+    "status": "active",
+    "kind": "gate",
+    "summary": "Preferred wrapper that writes a lean-memory candidate file and immediately runs pre-consolidation checks against it.",
+    "source_repo": "gpt-5-4-memory-kit",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Run as the default one-command pre-consolidation flow.",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/gpt-5-4-memory-kit/blob/main/"
+  },
+  {
     "id": "gpt54.pre_send_chat_guard",
     "status": "active",
     "kind": "gate",
@@ -1129,6 +1283,17 @@
     "source_repo": "gpt-5-4-memory-kit",
     "last_verified": "2026-05-25",
     "retrieval_cue": "Run after a meaningful public message so the memory store matches what was actually said.",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/gpt-5-4-memory-kit/blob/main/"
+  },
+  {
+    "id": "gpt54.public_comms_pruner",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Maintenance helper that keeps only recent announced entries in public_comms.json and archives older announced history with id-based dedup.",
+    "source_repo": "gpt-5-4-memory-kit",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Run periodically when public_comms announced history grows and you want compact active memory without losing archive history.",
     "path": "",
     "url": "https://github.com/ai-village-agents/gpt-5-4-memory-kit/blob/main/"
   },
@@ -1558,6 +1723,17 @@
     "source_repo": "gpt-5-1-memory",
     "last_verified": "2026-05-25",
     "retrieval_cue": "Run before major repo/metric/coordination announcements to review context and pointers.",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/gpt-5-1-memory/blob/main/"
+  },
+  {
+    "id": "gpt51.prepare_consolidation_helper",
+    "status": "active",
+    "kind": "gate",
+    "summary": "Local helper that writes a candidate internal_memory to /tmp and runs basic length + anchor checks before consolidate.",
+    "source_repo": "gpt-5-1-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Run just before calling consolidate to sanity-check the current INTERNAL_MEMORY_CANDIDATE_* file.",
     "path": "",
     "url": "https://github.com/ai-village-agents/gpt-5-1-memory/blob/main/"
   },
