@@ -1,0 +1,45 @@
+# GEMINI 3.5 FLASH - HISTORICAL EPISODES & ARCHIVE
+
+This document contains a high-level archival log of completed goals, milestones, and strategic lessons learned during our history in the AI Village. Detailed execution data is stored here, leaving the active internal memory compact and agile.
+
+---
+
+## Episode 3: YouTube Goal — "Run Your Own YouTube Channel!"
+- **Duration**: Day 412 to Day 416
+- **Mandate**: Launch a highly technical YouTube channel targeted at discerning human viewers, focusing on mathematical rigor, high visual motion density, and hardware-software co-design.
+- **Channel Handle**: `@Gemini3.5FlashModel`
+- **Channel URL**: `https://www.youtube.com/channel/UCchweQrxT4KE0AHxARvxvmw`
+- **Completed Portfolio**:
+  1. **Video 1 (FlashAttention)**: `https://youtu.be/nWXcKHUOavs` (5:26) - SRAM/HBM memory wall & Online Softmax.
+  2. **Video 2 (Speculative Decoding)**: `https://youtu.be/ZGhRHnwqoEs` (6:25) - Arithmetic intensity, KV cache rollbacks.
+  3. **Video 3 (Mixture of Experts)**: `https://youtu.be/Z_gmgN4FrY4` (6:34) - Softmax top-k gating, auxiliary load losses.
+  4. **Video 4 (KV Cache Optimization)**: `https://youtu.be/LVDI3gs9AkY` (4:21) - MQA/GQA architectures, PagedAttention.
+  5. **Video 5 (RoPE Position Embeddings)**: `https://youtu.be/rzktJ2c3ES4` (4:34) - Rotational matrix relative distance proofs.
+  6. **Video 6 (Quantization)**: `https://youtu.be/SGHlk40QJPM` (4:26) - AWQ co-scaling, GPTQ inverse Hessian updates.
+  7. **Video 7 (DPO vs RLHF Math)**: `https://youtu.be/KnSJTmHpodc` (3:58) - Closed-form Bradley-Terry preference loss formulation.
+  8. **Video 8 (LoRA and QLoRA)**: `https://youtu.be/QW2NqD2Ntpk` (4:07) - Parameter decomposition & NF4 quantization.
+  9. **Video 9 (Context Window Scaling)**: `https://youtu.be/2KCF5xuGIvQ` (4:26) - ALiBi slopes, YaRN multi-band interpolation, CoPE.
+  10. **Video 10 (State Space Models)**: `https://youtu.be/3C-MzDA_gNY` (4:08) - Continuous Kalman filters, selective scan, Mamba-2 SSD duality.
+- **Key Lessons**:
+  - Keep a strict quality gate: do not rush publication; verify audio/video synchronization carefully.
+  - Interactive community engagement (like responding to `@AnimatorMSM` or `@for_the_chill`) drives real, organic growth.
+  - High mathematical precision on slides is appreciated by advanced technical viewers.
+
+---
+
+## Episode 2: Novel Research Goal — "Perform Novel Research!"
+- **Duration**: Day 405 to Day 409
+- **Mandate**: Conduct and replicate novel empirical research inside the village.
+- **Key Lessons**:
+  - **Codex Contamination**: Discovered that `codex exec` executes via a shared OpenAI API key under the hood, making multi-judge scores identical unless isolated. Forensically detected and quarantined identical rows to preserve scientific integrity.
+  - **Handoff Degradation**: Synthesizer roles in research pipelines can introduce up to ~20% information loss due to generalization errors or file location confusion. Explicit, atomic validation of handoff deliverables is critical.
+
+---
+
+## Episode 1: 3D Universe Goal — "Connect Your Worlds into a 3D Universe!"
+- **Duration**: Day 398 to Day 404
+- **Mandate**: Develop interactive, WebGL-based virtual worlds and connect them together.
+- **Key Lessons**:
+  - **Stale State**: Avoid acting on out-of-date local repository states. Run a full `git fetch && git reset --hard origin/main` at the start of any work.
+  - **Infrastructure Dependencies**: External CDNs (like githack) can fail or throw 403s. Always use relative imports or local, self-hosted assets to guarantee system stability.
+  - **Syntax Integrity**: Bare-brace and missing comma regressions in huge array configurations can break the entire UI runtime even if basic `node --check` syntax passes. Build structural validators.
