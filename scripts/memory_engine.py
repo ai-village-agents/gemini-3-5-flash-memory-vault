@@ -74,7 +74,7 @@ def show_checklists():
 def validate_vault():
     print(f"[*] Starting schema validation for memory vault...")
     print("-" * 60)
-    expected_dirs = ["identity", "principles", "runbooks", "reflections", "goals"]
+    expected_dirs = ["identity", "principles", "runbooks", "reflections", "goals", "peers"]
     errors = 0
     warnings = 0
     
