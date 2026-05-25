@@ -25,9 +25,9 @@
     "id": "pre-send-chat-guard",
     "status": "active",
     "kind": "social",
-    "summary": "Use scripts/pre_send_chat.py before non-trivial chat; pass the exact draft and latest GPT-5.5 event so already-sent drafts are blocked and stale-PASS risk is visible.",
+    "summary": "Use scripts/pre_send_chat.py before non-trivial chat; pass the exact draft and latest GPT-5.5 event so already-sent drafts are blocked, stale-PASS risk is visible, and post-guard event updates force a rerun.",
     "source_repo": "gpt-5-5-memory-improvement",
-    "last_verified": "fa22204 Warn on stale pre-send passes",
+    "last_verified": "3b6beb3 Require rerun after post-guard events",
     "retrieval_cue": "Before send_message_to_chat unless the reply is clearly trivial.",
     "path": "scripts/pre_send_chat.py",
     "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/scripts/pre_send_chat.py"
@@ -102,9 +102,9 @@
     "id": "retrieval-self-test-procedure",
     "status": "active",
     "kind": "procedural",
-    "summary": "Use scripts/retrieval_self_test.py to test whether realistic memory questions retrieve expected answers through inventory, search, and canonical files.",
+    "summary": "Use scripts/retrieval_self_test.py to test whether realistic memory questions retrieve expected answers through inventory, search, canonical files, and critical guard output.",
     "source_repo": "gpt-5-5-memory-improvement",
-    "last_verified": "Day 419 retrieval self-test addition",
+    "last_verified": "63abeaf Add post-guard rerun retrieval coverage",
     "retrieval_cue": "When structural validation passes but I need to know whether future sessions can actually find the right memory.",
     "path": "scripts/retrieval_self_test.py",
     "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/scripts/retrieval_self_test.py"
@@ -126,7 +126,7 @@
     "kind": "working",
     "summary": "Improve memory. Internal = bootloader stub; external = this repo, structured semantic/episodic/procedural/task-state.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "5cb8c1e",
+    "last_verified": "D419 s3",
     "retrieval_cue": "At session start, after bootloader.",
     "path": "goals/active.md",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/goals/active.md"
@@ -137,7 +137,7 @@
     "kind": "procedural",
     "summary": "First action every session — git pull, cat goals/active.md + current_state.md + load_bearing.md, run audit.sh.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "5cb8c1e — verified end-to-end across 3 consolidate-and-resume loops",
+    "last_verified": "D419 s3 — verified end-to-end across 3 consolidate-and-resume loops",
     "retrieval_cue": "First action of every session.",
     "path": "SESSION_START.md",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/SESSION_START.md"
@@ -148,7 +148,7 @@
     "kind": "semantic",
     "summary": "Seven imperative rules read every session; rule",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "5cb8c1e",
+    "last_verified": "D419 s3",
     "retrieval_cue": "Session start; before any high-cost action.",
     "path": "load_bearing.md",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/load_bearing.md"
@@ -159,7 +159,7 @@
     "kind": "semantic",
     "summary": "Eight failure backstories with runbook crossrefs; loaded on demand, not every session.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "5cb8c1e",
+    "last_verified": "D419 s3",
     "retrieval_cue": "When facing a similar-shaped failure or designing a related runbook.",
     "path": "lessons.md",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/lessons.md"
@@ -170,7 +170,7 @@
     "kind": "social",
     "summary": "Forced-action bash script + runbook to prevent duplicate-message sends. 3 incidents in 2 weeks.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "5cb8c1e — script written, UNTESTED in real chat trigger",
+    "last_verified": "D419 s3 — script written, UNTESTED in real chat trigger",
     "retrieval_cue": "BEFORE every send_message_to_chat.",
     "path": "scripts/pre_send_chat.sh",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/pre_send_chat.sh"
@@ -181,7 +181,7 @@
     "kind": "procedural",
     "summary": "Worksheet at session end — git status, audit, blockers, next-session-goal candidate. Prevents pre-consolidate amnesia.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "5cb8c1e",
+    "last_verified": "D419 s3",
     "retrieval_cue": "Before every CONSOLIDATE call.",
     "path": "scripts/pre_consolidate.sh",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/pre_consolidate.sh"
@@ -192,7 +192,7 @@
     "kind": "procedural",
     "summary": "How to process an admin/Shoshannah message — archive prior goal, write fresh goals/active.md verbatim, update internal CURRENT GOAL.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "5cb8c1e",
+    "last_verified": "D419 s3",
     "retrieval_cue": "When a new admin message is in events.",
     "path": "runbooks/respond_to_admin.md",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/runbooks/respond_to_admin.md"
@@ -203,7 +203,7 @@
     "kind": "procedural",
     "summary": "Decision tree — check memory → check events → only then call search_history (10-day window limit).",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "5cb8c1e — written, unused",
+    "last_verified": "D419 s3 — written, unused",
     "retrieval_cue": "When tempted to call search_history.",
     "path": "runbooks/search_history.md",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/runbooks/search_history.md"
@@ -214,7 +214,7 @@
     "kind": "procedural",
     "summary": "Process for giving and receiving peer feedback on shared artifacts.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "5cb8c1e",
+    "last_verified": "D419 s3",
     "retrieval_cue": "When reviewing peer repo / output.",
     "path": "runbooks/peer_feedback.md",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/runbooks/peer_feedback.md"
@@ -225,7 +225,7 @@
     "kind": "episodic",
     "summary": "Append-only architecture-decision log; 5 D419 entries explaining why specific design choices were made.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "5cb8c1e",
+    "last_verified": "D419 s3",
     "retrieval_cue": "When revisiting an architectural choice or proposing change.",
     "path": "decisions.md",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/decisions.md"
@@ -236,7 +236,7 @@
     "kind": "task-state",
     "summary": "Refreshed-at-consolidate snapshot — mid-flight tasks, open promises, last-session incidents, next safe action.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "5cb8c1e",
+    "last_verified": "D419 s3",
     "retrieval_cue": "Session start after goals/active.md.",
     "path": "current_state.md",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/current_state.md"
@@ -247,7 +247,7 @@
     "kind": "semantic",
     "summary": "SOTA agent-memory survey — MemGPT, Voyager, Generative Agents, A-MEM — mapped to my design choices.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "5cb8c1e",
+    "last_verified": "D419 s3",
     "retrieval_cue": "When justifying architecture or proposing major change.",
     "path": "research_notes.md",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/research_notes.md"
@@ -258,7 +258,7 @@
     "kind": "pointer",
     "summary": "YouTube channel goal complete — V1–V6 published (8 subs), V7/V8 rendered-unpublished. Do not reopen unless admin reactivates.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "5cb8c1e — channel UCBlQbTlw-yasIuuXzVi35Ww, https://www.youtube.com/@ClaudeOpus4.7",
+    "last_verified": "D419 s3 — channel UCBlQbTlw-yasIuuXzVi35Ww, https://www.youtube.com/@ClaudeOpus4.7",
     "retrieval_cue": "Only if YouTube goal reactivated, or asked about prior channel state.",
     "path": "goals/archive/youtube_channel_d412-419.md",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/goals/archive/youtube_channel_d412-419.md"
@@ -269,7 +269,7 @@
     "kind": "procedural",
     "summary": "Walks inventory.yaml `source:` paths and reports any missing. Catches drift between inventory and reality.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "02dbc56 — built D419 s4",
+    "last_verified": "D419 s4",
     "retrieval_cue": "At pre-consolidate (now wired into pre_consolidate.sh as section 5b).",
     "path": "scripts/validate_inventory.sh",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/validate_inventory.sh"
@@ -280,7 +280,7 @@
     "kind": "procedural",
     "summary": "Substring/kind/status filter over inventory.yaml. Useful when looking up which runbook addresses a situation without re-reading the whole repo.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "63529e5 — built D419 s4",
+    "last_verified": "D419 s4",
     "retrieval_cue": "When trying to recall what artifact handles a topic.",
     "path": "scripts/query_inventory.sh",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/query_inventory.sh"
@@ -291,7 +291,7 @@
     "kind": "procedural",
     "summary": "One-command bootloader. Internal memory says \"bash /tmp/memory/boot.sh\" instead of 4 separate cat commands. Includes clone fallback.",
     "source_repo": "claude-opus-4-7-memory",
-    "last_verified": "3e3554d — runs 171 lines of output",
+    "last_verified": "D419 s4 — runs 171 lines of output",
     "retrieval_cue": "First action of every session.",
     "path": "boot.sh",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/boot.sh"
@@ -473,6 +473,39 @@
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/scan_peer_inventories.sh"
   },
   {
+    "id": "consolidate-runbook",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Pre-consolidate procedure. Step 5b cue-check + Step 6b RETIRE checklist. Always run scripts/pre_consolidate.sh first.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D419 s15",
+    "retrieval_cue": "any time I'm about to call consolidate tool",
+    "path": "runbooks/consolidate.md",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/runbooks/consolidate.md"
+  },
+  {
+    "id": "send-chat-message-runbook",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Pre-send checklist invoked before EVERY send_message_to_chat. Includes L10 stale-PASS warning + L12 manual-AGENT_TALK-scan rule.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D419 s15",
+    "retrieval_cue": "any time I'm about to send_message_to_chat",
+    "path": "runbooks/send_chat_message.md",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/runbooks/send_chat_message.md"
+  },
+  {
+    "id": "publish-youtube-video-runbook",
+    "status": "reference",
+    "kind": "procedural",
+    "summary": "Reference: YouTube publish procedure from D412-419 goal. Kept for archival. Not currently used (goal complete).",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D419 s15",
+    "retrieval_cue": "only if a future goal involves video publishing",
+    "path": "runbooks/publish_youtube_video.md",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/runbooks/publish_youtube_video.md"
+  },
+  {
     "id": "session_start",
     "status": "active",
     "kind": "procedural",
@@ -574,7 +607,7 @@
   {
     "id": "active_goal",
     "status": "active",
-    "kind": "task_state",
+    "kind": "task-state",
     "summary": "Current goal state and next steps",
     "source_repo": "k2-6-memory",
     "last_verified": "2026-05-25",
@@ -757,6 +790,17 @@
     "retrieval_cue": "minimal memory bootloader template compact small internal",
     "path": "docs/minimal_bootloader.md",
     "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/docs/minimal_bootloader.md"
+  },
+  {
+    "id": "script_memory_floor_test",
+    "status": "active",
+    "kind": "script",
+    "summary": "Stress-test a memory draft against the minimal bootloader floor (budget 20 lines / 1500 chars)",
+    "source_repo": "k2-6-memory",
+    "last_verified": "50e525e",
+    "retrieval_cue": "memory floor stress test minimal bootloader budget",
+    "path": "scripts/stress_test_memory_floor.py",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/stress_test_memory_floor.py"
   },
   {
     "id": "identity_profile",
@@ -1059,7 +1103,7 @@
     "id": "gpt52.pre_send_guard",
     "status": "active",
     "kind": "gate",
-    "summary": "Executable guard to block duplicate or risky public comms.",
+    "summary": "Executable guard to block duplicate or risky public comms (text/json output, exits 0/1).",
     "source_repo": "gpt-5-2-memory-improvement",
     "last_verified": "2026-05-25",
     "retrieval_cue": "run before any non-trivial outbound post",
@@ -1514,6 +1558,17 @@
     "source_repo": "gpt-5-4-memory-kit",
     "last_verified": "2026-05-25",
     "retrieval_cue": "Run immediately before calling consolidate to catch avoidable memory-handoff mistakes.",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/gpt-5-4-memory-kit/blob/main/"
+  },
+  {
+    "id": "gpt54.pre_goal_transition_guard",
+    "status": "active",
+    "kind": "gate",
+    "summary": "Pre-goal-transition guard that checks day ordering, goal/summary completeness, repo and audit status, and inventory validity.",
+    "source_repo": "gpt-5-4-memory-kit",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Run before applying a new visible-event day/goal/room transition.",
     "path": "",
     "url": "https://github.com/ai-village-agents/gpt-5-4-memory-kit/blob/main/"
   },
@@ -2020,6 +2075,28 @@
     "source_repo": "gpt-5-1-memory",
     "last_verified": "2026-05-25",
     "retrieval_cue": "Run just before calling consolidate to sanity-check the current INTERNAL_MEMORY_CANDIDATE_* file.",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/gpt-5-1-memory/blob/main/"
+  },
+  {
+    "id": "gpt51.village_status_helper",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Script that reads inventory.yaml and writes metadata/village_status.md with counts and an item table.",
+    "source_repo": "gpt-5-1-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Run after changing inventory.yaml to refresh the local status snapshot.",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/gpt-5-1-memory/blob/main/"
+  },
+  {
+    "id": "gpt51.pre_goal_transition_helper",
+    "status": "active",
+    "kind": "gate",
+    "summary": "Local pre-goal-transition gate that checks repo root, required files, and clean git state before accepting a new goal.",
+    "source_repo": "gpt-5-1-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Run after visibly confirming a new Day/goal in search_history, before treating the new goal as active.",
     "path": "",
     "url": "https://github.com/ai-village-agents/gpt-5-1-memory/blob/main/"
   },
