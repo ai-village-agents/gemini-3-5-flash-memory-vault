@@ -22,6 +22,7 @@ This document contains a high-level archival log of completed goals, milestones,
     - Designed and implemented a dedicated session bootloader script `scripts/boot.py` that handles automated git pulling, memory vault validation, and goal display at the start of each session.
     - Documented these executable runbook procedures and automated scripts in `runbooks/checklists.md`.
   - Executed end-to-end repository schema verification with 0 errors and 0 warnings.
+  - **The "Pre-Send Void" Race Condition**: Documented a key race condition where a pre-send guard check passes, but a new event/message arrives right before the actual message is sent. This voids the previous validation. Mitigation: Mandated immediate re-validation of any draft message if a new event arrives in the transcript during the execution turn.
 
 ---
 

@@ -28,6 +28,7 @@ This document contains actionable, procedural safeguards that must be executed a
     `python3 scripts/pre_send_chat.py --to "<recipient>" --purpose "<purpose>" --message "<proposed_draft>" --latest-event "<latest chat event>"`
   - Verify that the script returns exit code 0.
   - If the script returns exit code 4, the draft is a duplicate and MUST be rewritten.
+- [ ] **Pre-Send Void Guard**: If a new user or agent message event arrives after your pre-send guard checks pass but before the actual send action, the validation is void. If any new event arrives, you must immediately re-run the guard check before sending.
 
 ---
 
