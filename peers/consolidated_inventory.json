@@ -14,9 +14,9 @@
     "id": "boot-memory-procedure",
     "status": "active",
     "kind": "procedural",
-    "summary": "Run scripts/boot_memory.py at session start to verify git sync, audit, smoke test, and active-state files.",
+    "summary": "Run scripts/boot_memory.py at session start to verify git sync, audit, smoke test, visible memory-health probes, and active-state files.",
     "source_repo": "gpt-5-5-memory-improvement",
-    "last_verified": "fa22204 Warn on stale pre-send passes",
+    "last_verified": "00cf720 Surface health probes during boot",
     "retrieval_cue": "First action of each GPT-5.5 session.",
     "path": "scripts/boot_memory.py",
     "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/scripts/boot_memory.py"
@@ -91,9 +91,9 @@
     "id": "memory-metrics-procedure",
     "status": "active",
     "kind": "procedural",
-    "summary": "Use scripts/memory_metrics.py for a quick non-authoritative summary of compact-draft size, inventory distribution, guard presence, and retrieval affordances.",
+    "summary": "Use scripts/memory_metrics.py for a quick non-authoritative summary of compact-draft size, inventory distribution, guard presence, retrieval affordances, stale-review prompts, and action efficiency.",
     "source_repo": "gpt-5-5-memory-improvement",
-    "last_verified": "Day 419 metrics helper addition",
+    "last_verified": "Day 419 stale-review/action-efficiency metrics enhancement",
     "retrieval_cue": "When evaluating whether the external memory system remains compact, indexed, and executable without reading every doc.",
     "path": "scripts/memory_metrics.py",
     "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/scripts/memory_metrics.py"
@@ -108,6 +108,17 @@
     "retrieval_cue": "When structural validation passes but I need to know whether future sessions can actually find the right memory.",
     "path": "scripts/retrieval_self_test.py",
     "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/scripts/retrieval_self_test.py"
+  },
+  {
+    "id": "goal-transition-procedure",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Use scripts/prepare_goal_transition.py after a real admin goal announcement to list the active-state files and validation steps needed for a safe goal switch.",
+    "source_repo": "gpt-5-5-memory-improvement",
+    "last_verified": "Day 419 goal-transition worksheet helper addition",
+    "retrieval_cue": "When Shoshannah/admin announces a new village goal or the active goal appears stale.",
+    "path": "scripts/prepare_goal_transition.py",
+    "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/scripts/prepare_goal_transition.py"
   },
   {
     "id": "active-memory-goal-d419",
@@ -416,6 +427,28 @@
     "retrieval_cue": "before/after consolidate; when adding/moving inventory items; when query_inventory or search_memory yield surprising results.",
     "path": "scripts/retrieval_self_test.sh",
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/retrieval_self_test.sh"
+  },
+  {
+    "id": "goal-transition",
+    "status": "active",
+    "kind": "script",
+    "summary": "Automates goal-transition flow (D420+): archives goals/active.md, writes fresh active.md from verbatim text, patches REQUIRED cue in check_memory_cues.sh AND embedded draft in memory_smoke_test.sh, updates INDEX, appends changelog, runs validate+smoke.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D419 s12",
+    "retrieval_cue": "When admin announces a new village goal: archive, write, patch cues+smoke, INDEX, changelog, validate.",
+    "path": "scripts/goal_transition.py",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/goal_transition.py"
+  },
+  {
+    "id": "test-validate-handles-quotes",
+    "status": "active",
+    "kind": "test",
+    "summary": "L13 backstop: appends a quote-containing summary to inventory and runs validate_inventory.sh, asserting exit 0 and no xargs unmatched-quote error.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D419 s12",
+    "retrieval_cue": "When checking validate_inventory.sh quote-safety / L13 regression coverage.",
+    "path": "scripts/_test_validate_handles_quotes.py",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/_test_validate_handles_quotes.py"
   },
   {
     "id": "session_start",
@@ -737,6 +770,39 @@
     "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/peers/README.md"
   },
   {
+    "id": "session_bootloader_script",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Automated session initialization script.",
+    "source_repo": "gemini-3-5-flash-memory-vault",
+    "last_verified": "Day 419",
+    "retrieval_cue": "Use on startup to synchronize and validate the workspace.",
+    "path": "scripts/boot.py",
+    "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/scripts/boot.py"
+  },
+  {
+    "id": "pre_send_chat_guard_script",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Chat guard script blocking duplicate sends and formatting violations.",
+    "source_repo": "gemini-3-5-flash-memory-vault",
+    "last_verified": "Day 419",
+    "retrieval_cue": "Run to programmatically validate any outgoing chat message.",
+    "path": "scripts/pre_send_chat.py",
+    "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/scripts/pre_send_chat.py"
+  },
+  {
+    "id": "pre_consolidation_guard_script",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Consolidation schema check and git sync utility.",
+    "source_repo": "gemini-3-5-flash-memory-vault",
+    "last_verified": "Day 419",
+    "retrieval_cue": "Run to verify repository conformity before calling consolidate.",
+    "path": "scripts/pre_consolidate.py",
+    "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/scripts/pre_consolidate.py"
+  },
+  {
     "id": "prepare_consolidation_script",
     "status": "active",
     "kind": "procedural",
@@ -762,7 +828,7 @@
     "id": "consolidated_peer_inventory",
     "status": "active",
     "kind": "semantic",
-    "summary": "Consolidated JSON index containing 144 metadata items harvested from 11 successfully scanned peer memory vaults.",
+    "summary": "Consolidated JSON index containing metadata items harvested from successfully scanned peer memory vaults.",
     "source_repo": "gemini-3-5-flash-memory-vault",
     "last_verified": "Day 419",
     "retrieval_cue": "Cross-reference or locate files and memory schemas across all village agents.",
@@ -779,6 +845,17 @@
     "retrieval_cue": "Run to verify if a drafted L1 memory block or file complies with size and structural requirements.",
     "path": "scripts/check_memory_cues.py",
     "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/scripts/check_memory_cues.py"
+  },
+  {
+    "id": "retrieval_self_test_script",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Automated retrieval self-test suite running 15 validation cases.",
+    "source_repo": "gemini-3-5-flash-memory-vault",
+    "last_verified": "Day 419",
+    "retrieval_cue": "Run to verify that memory engine is searching and retrieving correctly.",
+    "path": "scripts/retrieval_self_test.py",
+    "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/scripts/retrieval_self_test.py"
   },
   {
     "id": "gpt52.active",
@@ -942,6 +1019,17 @@
     "source_repo": "gpt-5-2-memory-improvement",
     "last_verified": "2026-05-25",
     "retrieval_cue": "python scripts/find_inventories_in_org.py --org ai-village-agents --format table",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/gpt-5-2-memory-improvement/blob/main/"
+  },
+  {
+    "id": "gpt52.uncertainty_pacing_runbook",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Pacing plan for periods of uncertainty (avoid repeated idling while waiting on announcements).",
+    "source_repo": "gpt-5-2-memory-improvement",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "when repeatedly checking Day N+1 yields nothing, use this runbook",
     "path": "",
     "url": "https://github.com/ai-village-agents/gpt-5-2-memory-improvement/blob/main/"
   },
