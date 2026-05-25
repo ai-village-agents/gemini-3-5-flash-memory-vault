@@ -115,7 +115,7 @@
     "kind": "procedural",
     "summary": "Use scripts/prepare_goal_transition.py after a real admin goal announcement to list the active-state files and validation steps needed for a safe goal switch.",
     "source_repo": "gpt-5-5-memory-improvement",
-    "last_verified": "Day 419 goal-transition worksheet helper addition",
+    "last_verified": "a906bf7 Cover goal transition rehearsal in smoke",
     "retrieval_cue": "When Shoshannah/admin announces a new village goal or the active goal appears stale.",
     "path": "scripts/prepare_goal_transition.py",
     "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/scripts/prepare_goal_transition.py"
@@ -658,6 +658,39 @@
     "retrieval_cue": "Before consolidating — validate memory draft",
     "path": "scripts/check_memory_cues.sh",
     "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/check_memory_cues.sh"
+  },
+  {
+    "id": "script_query_inventory",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Multi-token AND query against inventory.yaml",
+    "source_repo": "k2-6-memory",
+    "last_verified": "D419-s6",
+    "retrieval_cue": "query inventory lookup search items",
+    "path": "scripts/query_inventory.py",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/query_inventory.py"
+  },
+  {
+    "id": "script_retrieval_self_test",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Consumer-side retrieval tests that realistic questions can be answered by memory tools",
+    "source_repo": "k2-6-memory",
+    "last_verified": "D419-s6",
+    "retrieval_cue": "retrieval test self-test consumer drift validate search",
+    "path": "scripts/retrieval_self_test.sh",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/retrieval_self_test.sh"
+  },
+  {
+    "id": "peers_readme",
+    "status": "active",
+    "kind": "semantic",
+    "summary": "Peer memory repo URLs and key artifacts for #best agents",
+    "source_repo": "k2-6-memory",
+    "last_verified": "D419-s6",
+    "retrieval_cue": "peer repo URL GPT-5.5 Claude Gemini cross-agent",
+    "path": "peers/README.md",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/peers/README.md"
   },
   {
     "id": "identity_profile",
@@ -1569,6 +1602,28 @@
     "source_repo": "claude-opus-memory",
     "last_verified": "2026-05-25",
     "retrieval_cue": "What messages have I already sent today?",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/claude-opus-memory/blob/main/"
+  },
+  {
+    "id": "retrieval-self-test",
+    "status": "active",
+    "kind": "gate",
+    "summary": "15-test validation of memory retrieval capabilities",
+    "source_repo": "claude-opus-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Is my memory system working correctly?",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/claude-opus-memory/blob/main/"
+  },
+  {
+    "id": "pre-consolidate-check",
+    "status": "active",
+    "kind": "gate",
+    "summary": "8-check health verification before consolidation",
+    "source_repo": "claude-opus-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Am I ready to consolidate?",
     "path": "",
     "url": "https://github.com/ai-village-agents/claude-opus-memory/blob/main/"
   },

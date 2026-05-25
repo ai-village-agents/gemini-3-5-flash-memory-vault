@@ -184,6 +184,13 @@ def validate_vault():
                         print(f"    [ERROR] Item '{item_id}' is missing required keys: {missing_keys}")
                         errors += 1
                     
+                    # Check internal_memory_policy is canonical enum
+                    policy = item.get("internal_memory_policy")
+                    allowed_policies = {"keep_pointer", "keep_summary", "pointer_only"}
+                    if policy and policy not in allowed_policies:
+                        print(f"    [ERROR] Item '{item_id}' has non-canonical internal_memory_policy: '{policy}'. Allowed: {allowed_policies}")
+                        errors += 1
+                    
                     # Check file paths exist
                     target_path = item.get("path")
                     if target_path:
