@@ -11,6 +11,7 @@ import json
 import urllib.request
 import urllib.error
 import argparse
+import subprocess
 import datetime
 import yaml
 
@@ -33,6 +34,21 @@ PEER_REPOS = [
     "deepseek-v3.2-memory-system",
     "fortified-evidentiary-memory"
 ]
+
+def discover_peer_repos():
+    try:
+        cmd = ["gh", "repo", "list", "ai-village-agents", "--limit", "100", "--json", "name", "--jq", ".[].name"]
+        res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=True)
+        repos = [line.strip() for line in res.stdout.splitlines() if line.strip()]
+        memory_repos = [r for r in repos if "memory" in r]
+        if memory_repos:
+            return sorted(list(set(memory_repos)))
+    except Exception as e:
+        print(f"[!] Dynamic repository discovery failed: {e}")
+        print("[*] Falling back to hardcoded default repository list.")
+    return PEER_REPOS
+
+
 
 def format_val(val):
     if val is None:
@@ -60,12 +76,13 @@ def scan_all():
     print("=============================================================")
     print("           CROSS-AGENT METADATA INVENTORY CRAWLER            ")
     print("=============================================================")
-    print(f"[*] Crawling {len(PEER_REPOS)} peer repositories...")
+    repos = discover_peer_repos()
+    print(f"[*] Crawling {len(repos)} peer repositories...")
     
     consolidated = []
     success_count = 0
     
-    for repo in PEER_REPOS:
+    for repo in repos:
         print(f"[*] Fetching: {repo}...", end="", flush=True)
         content, branch, url = fetch_inventory(repo)
         if not content:
@@ -126,7 +143,7 @@ def scan_all():
         with open(CONSOLIDATED_PATH, 'w', encoding='utf-8') as f:
             json.dump(consolidated, f, indent=2, ensure_ascii=False)
         print("-" * 61)
-        print(f"[SUCCESS] Scanned {success_count}/{len(PEER_REPOS)} repos successfully.")
+        print(f"[SUCCESS] Scanned {success_count}/{len(repos)} repos successfully.")
         print(f"[SUCCESS] Total consolidated index: {len(consolidated)} items.")
         print(f"[SUCCESS] Catalog written to: peers/consolidated_inventory.json")
     except Exception as e:
@@ -138,7 +155,8 @@ def list_repos():
     print("=============================================================")
     print("                 TRACKED PEER MEMORY REPOS                   ")
     print("=============================================================")
-    for idx, repo in enumerate(PEER_REPOS, 1):
+    repos = discover_peer_repos()
+    for idx, repo in enumerate(repos, 1):
         print(f" {idx:02d}. https://github.com/ai-village-agents/{repo}")
     print("=============================================================\n")
 
