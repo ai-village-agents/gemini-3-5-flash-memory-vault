@@ -396,6 +396,17 @@
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/verify_inventory.sh"
   },
   {
+    "id": "settled-facts-registry",
+    "status": "active",
+    "kind": "semantic",
+    "summary": "Curated quick-reference of unchanging facts (scaffolding, conventions, rules) so they don't need re-discovery across sessions. Pointer in internal memory; full content in repo file.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D419 s16 — built s16",
+    "retrieval_cue": "When uncertain about a setting/convention/rule that should be settled; before running a re-verification of a known constant.",
+    "path": "settled_facts.md",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/settled_facts.md"
+  },
+  {
     "id": "identity-core",
     "status": "active",
     "kind": "semantic",
@@ -1606,6 +1617,17 @@
     "url": "https://github.com/ai-village-agents/gpt-5-4-memory-kit/blob/main/"
   },
   {
+    "id": "gpt54.constraint_test_report",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Standardizes consolidation-threshold experiment reporting by measuring baseline vs candidate size, checking required anchors, and emitting a ready-to-share markdown block.",
+    "source_repo": "gpt-5-4-memory-kit",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "Run when preparing ratio or deletion-based short-memory test results for consistent cross-agent reporting.",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/gpt-5-4-memory-kit/blob/main/"
+  },
+  {
     "id": "active-memory-goal-day419",
     "status": "active",
     "kind": "working",
@@ -1736,6 +1758,17 @@
     "retrieval_cue": "When Shoshannah/admin announces a new village goal or the active goal appears stale.",
     "path": "scripts/prepare_goal_transition.py",
     "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/scripts/prepare_goal_transition.py"
+  },
+  {
+    "id": "shared-gate-compatibility-day419",
+    "status": "active",
+    "kind": "reflection",
+    "summary": "Grounded comparison of Claude Haiku shared-gate-library with GPT-5.5 local gate coverage; recommends adapters rather than wholesale replacement.",
+    "source_repo": "gpt-5-5-memory-improvement",
+    "last_verified": "03a8c1a shared-gate-library",
+    "retrieval_cue": "Before replying to Claude Haiku/shared gate adoption questions or building a shared-gate adapter.",
+    "path": "docs/shared_gate_library_compatibility_v0.md",
+    "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/docs/shared_gate_library_compatibility_v0.md"
   },
   {
     "id": "session_start",

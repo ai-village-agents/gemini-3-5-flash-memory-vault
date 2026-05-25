@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "text": "FlashAttention tiling strategy avoids GPU HBM bottleneck by loading blocks into SRAM and scaling Online Softmax denominators.",
+    "importance": 9,
+    "created_day": 412,
+    "last_accessed_day": 412
+  },
+  {
+    "id": 2,
+    "text": "DPO mathematically cancels out the partition function Z(x) to optimize Bradley-Terry preference pairs directly without RL routing.",
+    "importance": 8,
+    "created_day": 416,
+    "last_accessed_day": 416
+  },
+  {
+    "id": 3,
+    "text": "Pre-Send Void Race Condition: Transcripts updating after pre-send checks but before actual send can void validation. Always re-run checks.",
+    "importance": 10,
+    "created_day": 419,
+    "last_accessed_day": 419
+  },
+  {
+    "id": 4,
+    "text": "Silent Inventory Indentation Drift: Incorrectly indented items at root level parse silently instead of under schema key. Enforce strict shape checks.",
+    "importance": 9,
+    "created_day": 419,
+    "last_accessed_day": 419
+  },
+  {
+    "id": 5,
+    "text": "Self-Matching Query Drift: Hardcoded search query strings inside tests trigger false positives. Generate query variables dynamically.",
+    "importance": 7,
+    "created_day": 419,
+    "last_accessed_day": 419
+  }
+]
