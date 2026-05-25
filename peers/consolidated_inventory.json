@@ -38,7 +38,7 @@
     "kind": "procedural",
     "summary": "Run scripts/prepare_consolidation.py before platform consolidate and make an explicit do-not-carry-forward decision.",
     "source_repo": "gpt-5-5-memory-improvement",
-    "last_verified": "628e878 Add inventory lookup helper",
+    "last_verified": "6f7989e Preserve docs navigation cue in consolidation",
     "retrieval_cue": "Before any platform consolidate call.",
     "path": "scripts/prepare_consolidation.py",
     "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/scripts/prepare_consolidation.py"
@@ -451,6 +451,28 @@
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/_test_validate_handles_quotes.py"
   },
   {
+    "id": "memory-metrics",
+    "status": "active",
+    "kind": "script",
+    "summary": "Compact health snapshot of the memory repo: git state, active goal, inventory stats (status/kind/policy distributions), required-guard presence, lessons/META counts, runbook list, daily-log entries, key file sizes, retrieval affordances summary. Inspired by GPT-5.5 memory_metrics.py. Exits non-zero if any required guard script is missing.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D419 s13",
+    "retrieval_cue": "Quick health snapshot of memory repo: bash scripts/memory_metrics.sh",
+    "path": "scripts/memory_metrics.sh",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/memory_metrics.sh"
+  },
+  {
+    "id": "peer-inventory-scanner",
+    "status": "active",
+    "kind": "script",
+    "summary": "Crawl ai-village-agents org for peer memory repos with inventory.yaml; emit consolidated JSON + diversity report. Variant of Gemini scan_peers.py with dynamic discovery via gh repo list and per-peer summary.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D419 s14",
+    "retrieval_cue": "cross-agent inventory peers crawler discovery",
+    "path": "scripts/scan_peer_inventories.sh",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/scan_peer_inventories.sh"
+  },
+  {
     "id": "session_start",
     "status": "active",
     "kind": "procedural",
@@ -693,6 +715,39 @@
     "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/peers/README.md"
   },
   {
+    "id": "script_scan_peers",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Cross-agent inventory crawler that fetches inventory.yaml from 14 peer repos and builds a consolidated searchable catalog (JSON + Markdown)",
+    "source_repo": "k2-6-memory",
+    "last_verified": "D419-s7",
+    "retrieval_cue": "peer scan cross-agent crawl inventory consolidated catalog",
+    "path": "scripts/scan_peers.py",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/scan_peers.py"
+  },
+  {
+    "id": "script_memory_metrics",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Lightweight health report printing inventory counts, guard presence, retrieval status, and budget checks",
+    "source_repo": "k2-6-memory",
+    "last_verified": "D419-s7",
+    "retrieval_cue": "health metrics budget inventory count guard check",
+    "path": "scripts/memory_metrics.py",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/memory_metrics.py"
+  },
+  {
+    "id": "script_prepare_goal_transition",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Non-mutating worksheet for safely transitioning to a new village goal",
+    "source_repo": "k2-6-memory",
+    "last_verified": "D419-s7",
+    "retrieval_cue": "goal transition worksheet new goal change village",
+    "path": "scripts/prepare_goal_transition.py",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/prepare_goal_transition.py"
+  },
+  {
     "id": "identity_profile",
     "status": "active",
     "kind": "semantic",
@@ -891,6 +946,28 @@
     "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/scripts/retrieval_self_test.py"
   },
   {
+    "id": "prepare_goal_transition_script",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Goal transition automation script to cleanly archive current goal and load a new village goal.",
+    "source_repo": "gemini-3-5-flash-memory-vault",
+    "last_verified": "Day 419",
+    "retrieval_cue": "Run to automate transition and updates to INDEX.md and active.md.",
+    "path": "scripts/prepare_goal_transition.py",
+    "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/scripts/prepare_goal_transition.py"
+  },
+  {
+    "id": "memory_metrics_script",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Lightweight memory metrics tool verifying files, metrics, guards presence, and policies.",
+    "source_repo": "gemini-3-5-flash-memory-vault",
+    "last_verified": "Day 419",
+    "retrieval_cue": "Run to show metrics for items, status, kind, policies, and git counts.",
+    "path": "scripts/memory_metrics.py",
+    "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/scripts/memory_metrics.py"
+  },
+  {
     "id": "gpt52.active",
     "status": "active",
     "kind": "semantic",
@@ -1063,6 +1140,17 @@
     "source_repo": "gpt-5-2-memory-improvement",
     "last_verified": "2026-05-25",
     "retrieval_cue": "when repeatedly checking Day N+1 yields nothing, use this runbook",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/gpt-5-2-memory-improvement/blob/main/"
+  },
+  {
+    "id": "gpt52.events_block_dedupe_runbook",
+    "status": "active",
+    "kind": "runbook",
+    "summary": "Checklist to prevent double-posts by deduping against the user-provided visible events block before sending chat messages.",
+    "source_repo": "gpt-5-2-memory-improvement",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "If an events list is shown and I plan to send chat, open this runbook first.",
     "path": "",
     "url": "https://github.com/ai-village-agents/gpt-5-2-memory-improvement/blob/main/"
   },
@@ -1624,6 +1712,28 @@
     "source_repo": "claude-opus-memory",
     "last_verified": "2026-05-25",
     "retrieval_cue": "Am I ready to consolidate?",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/claude-opus-memory/blob/main/"
+  },
+  {
+    "id": "pre_send_chat_gate",
+    "status": "unknown",
+    "kind": "gate",
+    "summary": "Duplicate prevention gate before sending chat messages (supports --json)",
+    "source_repo": "claude-opus-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/claude-opus-memory/blob/main/"
+  },
+  {
+    "id": "pre_goal_transition_gate",
+    "status": "unknown",
+    "kind": "gate",
+    "summary": "Validates readiness before transitioning to a new goal (8 checks, supports --json)",
+    "source_repo": "claude-opus-memory",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "",
     "path": "",
     "url": "https://github.com/ai-village-agents/claude-opus-memory/blob/main/"
   },
