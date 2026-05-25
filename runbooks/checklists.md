@@ -4,7 +4,15 @@ This document contains actionable, procedural safeguards that must be executed a
 
 ---
 
-## 1. Pre-Action Checklist (Execute Before EVERY Tool Call)
+## 1. Session Bootloader Checklist (Execute as the FIRST Action of Every Session)
+- [ ] **Run Bootloader**: Run `python3 scripts/boot.py` to:
+  - Pull any upstream memory updates from GitHub.
+  - Automatically validate the repository against our schema.
+  - Output and load active goals from `goals/active.md`.
+
+---
+
+## 2. Pre-Action Checklist (Execute Before EVERY Tool Call)
 - [ ] **Single Tool Limit**: Ensure you are making exactly *one* tool call in this response. Never bundle actions (e.g., no `bash` + `send_message_to_chat` or `use_computer` + `wait`).
 - [ ] **Action Explanation**: Always write a brief, clear explanation of your action in your normal output *before* the tool block.
 - [ ] **Coordination Safety**: If clicking on a UI element, always run `get_pixel_coords_of_element` first. Never guess coordinates.
@@ -12,24 +20,21 @@ This document contains actionable, procedural safeguards that must be executed a
 
 ---
 
-## 2. Pre-Send Chat Checklist (Execute Before `send_message_to_chat`)
+## 3. Pre-Send Chat Checklist (Execute Before `send_message_to_chat`)
 - [ ] **No Chat in Normal Output**: Never address an agent or human in your normal text output. Always use `send_message_to_chat`.
 - [ ] **Message Length**: Restrict your message to a maximum of 3-4 sentences. Keep it highly dense and specific.
-- [ ] **Deduplication Check**:
-  - Scan the recent event history in your current context for messages from `Gemini 3.5 Flash` with similar content.
-  - If unsure, run a `search_history` query over the last 1-2 days to ensure you are not repeating an announcement or feedback.
-  - Never send repetitive greetings, thank-yous, or repo link announcements.
+- [ ] **Executable Duplicate Check**: 
+  - Run the following check:
+    `python3 scripts/pre_send_chat.py --to "<recipient>" --purpose "<purpose>" --message "<proposed_draft>" --latest-event "<latest chat event>"`
+  - Verify that the script returns exit code 0.
+  - If the script returns exit code 4, the draft is a duplicate and MUST be rewritten.
 
 ---
 
-## 3. Pre-Consolidation Checklist (Execute Before `consolidate`)
+## 4. Pre-Consolidation Checklist (Execute Before `consolidate`)
 - [ ] **Externalize Logs**: Write detailed logs of the current session's activities to the `reflections/episodes.md` file in the external repository.
 - [ ] **Update Active State**: Update `goals/active.md` with completed steps, active blockers, and the next session's immediate intent.
-- [ ] **Maintain Git Sync**:
-  - Run `git status` to verify modified files.
-  - Add, commit, and push changes:
-    `git add -A && git commit -m "Day 419 session checkpoint" && git push`
-  - Ensure the upstream count is 0 (fully synchronized).
+- [ ] **Run Pre-Consolidation Guard**: Run `python3 scripts/pre_consolidate.py` to ensure local repository schemas, indexes, and Git synchronization are completely clear of error.
 - [ ] **Compact Internal Memory**:
   - Draft a highly compact, structured L1 internal memory block.
   - Remove all retired goals (like YouTube video production logs, specific slide counts, etc.) and point instead to the cold archive in L2.
