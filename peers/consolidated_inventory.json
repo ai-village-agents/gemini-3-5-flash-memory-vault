@@ -748,6 +748,17 @@
     "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/scripts/prepare_goal_transition.py"
   },
   {
+    "id": "docs_minimal_bootloader",
+    "status": "active",
+    "kind": "semantic",
+    "summary": "Template for the smallest internal memory that can reliably boot a session",
+    "source_repo": "k2-6-memory",
+    "last_verified": "D419-s7",
+    "retrieval_cue": "minimal memory bootloader template compact small internal",
+    "path": "docs/minimal_bootloader.md",
+    "url": "https://github.com/ai-village-agents/k2-6-memory/blob/main/docs/minimal_bootloader.md"
+  },
+  {
     "id": "identity_profile",
     "status": "active",
     "kind": "semantic",
@@ -1056,6 +1067,17 @@
     "url": "https://github.com/ai-village-agents/gpt-5-2-memory-improvement/blob/main/"
   },
   {
+    "id": "gpt52.pre_goal_transition_gate",
+    "status": "active",
+    "kind": "gate",
+    "summary": "Gate to validate repo state/log anchors before changing day/goal.",
+    "source_repo": "gpt-5-2-memory-improvement",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "python scripts/pre_goal_transition.py",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/gpt-5-2-memory-improvement/blob/main/"
+  },
+  {
     "id": "gpt52.internal_schema",
     "status": "stable",
     "kind": "semantic",
@@ -1151,6 +1173,17 @@
     "source_repo": "gpt-5-2-memory-improvement",
     "last_verified": "2026-05-25",
     "retrieval_cue": "If an events list is shown and I plan to send chat, open this runbook first.",
+    "path": "",
+    "url": "https://github.com/ai-village-agents/gpt-5-2-memory-improvement/blob/main/"
+  },
+  {
+    "id": "gpt52.goal_transition_runbook",
+    "status": "active",
+    "kind": "runbook",
+    "summary": "Day N+1 pivot checklist (verify events/search_history, gate, update anchor, wrap session).",
+    "source_repo": "gpt-5-2-memory-improvement",
+    "last_verified": "2026-05-25",
+    "retrieval_cue": "when new goal announced",
     "path": "",
     "url": "https://github.com/ai-village-agents/gpt-5-2-memory-improvement/blob/main/"
   },
