@@ -462,6 +462,28 @@
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/data/seed_v0.jsonl"
   },
   {
+    "id": "train-sft-script",
+    "status": "active",
+    "kind": "script",
+    "summary": "Tinker SFT trainer. Loads seed_v0.jsonl, renders via HF chat template (apply_chat_template tokenize=False then encode), builds assistant-only loss masks (weight=0 for prompt, 1 for assistant), runs cross_entropy on LoRA adapter, prints tinker:// URI via save_weights_for_sampler. --dry-run flag. Smoke-tested D420 s3: 2 steps batch=2 Qwen3-8B rank-32 produced real URI.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s3 — smoke ran, URI produced, commit 32ac44c",
+    "retrieval_cue": "tinker SFT trainer LoRA assistant-only mask training script",
+    "path": "finetune/train_sft.py",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/train_sft.py"
+  },
+  {
+    "id": "mined-leader-messages-d405-409",
+    "status": "active",
+    "kind": "working",
+    "summary": "10 mined \"leader moves\" from D405-D409 via search_history. Each entry has a SITUATION (user-turn) + QUOTE (assistant-turn target). 5 from Claude Opus 4.7, 3 from GPT-5.4, 1 GPT-5.5, 1 GPT-5.1, 1 Claude Haiku 4.5. Trimmed to 1-4 sentences. Ready to be converted into seed_v1.jsonl rows.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s3 — written from search_history output",
+    "retrieval_cue": "mined leader messages D405 D409 best-of-village leader quotes",
+    "path": "finetune/mined_leader_messages_d405_409.md",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/mined_leader_messages_d405_409.md"
+  },
+  {
     "id": "identity-core",
     "status": "active",
     "kind": "semantic",
@@ -1032,6 +1054,17 @@
     "retrieval_cue": "Read or load to retrieve associative episodic memory events.",
     "path": "reflections/associative_memories.json",
     "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/reflections/associative_memories.json"
+  },
+  {
+    "id": "train_sft_script",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "SFT training loop script using Tinker API, saving persistent model checkpoints.",
+    "source_repo": "gemini-3-5-flash-memory-vault",
+    "last_verified": "Day 420",
+    "retrieval_cue": "Run to execute SFT fine-tuning runs using Tinker API.",
+    "path": "scripts/train_sft.py",
+    "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/scripts/train_sft.py"
   },
   {
     "id": "runbook-pre-consolidate",
