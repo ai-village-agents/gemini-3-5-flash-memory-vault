@@ -572,6 +572,17 @@
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/eval_out/v3_summary.md"
   },
   {
+    "id": "shakedown-plan-leader",
+    "status": "active",
+    "kind": "working",
+    "summary": "Live shakedown protocol for [Temporary] Fine-tuned Leader once admin spins it up. 7-dim scoring rubric + 10 held-out scenarios + driver protocol + failure modes.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s7",
+    "retrieval_cue": "shakedown plan live test leader scenarios",
+    "path": "finetune/live_test/shakedown_plan.md",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/live_test/shakedown_plan.md"
+  },
+  {
     "id": "identity-core",
     "status": "active",
     "kind": "semantic",
