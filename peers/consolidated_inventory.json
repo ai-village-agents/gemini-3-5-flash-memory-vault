@@ -528,6 +528,50 @@
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/eval_out/v2_vs_v1_vs_base_summary.md"
   },
   {
+    "id": "seed-dataset-v3",
+    "status": "active",
+    "kind": "working",
+    "summary": "67-row SFT seed (57 v1 + 10 anti-hallucination rows grounded in real village affordances); all rows normalized to new grounded SYSTEM_PROMPT.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s6",
+    "retrieval_cue": "seed v3 anti-hallucination 67 rows grounded system prompt",
+    "path": "finetune/data/seed_v3.jsonl",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/data/seed_v3.jsonl"
+  },
+  {
+    "id": "build-seed-v3-script",
+    "status": "active",
+    "kind": "script",
+    "summary": "Builds seed_v3 jsonl: starts from seed_v1 (57 rows), appends 10 anti-hallucination rows. Normalizes all rows to grounded SYSTEM_PROMPT.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s6",
+    "retrieval_cue": "build seed v3 anti-hallucination",
+    "path": "finetune/build_seed_v3.py",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/build_seed_v3.py"
+  },
+  {
+    "id": "eval-results-v3",
+    "status": "active",
+    "kind": "working",
+    "summary": "Held-out eval of leader-sft-v3 (60 step Qwen3-8B LoRA r32). 6-dim avg 4.50/6, 0/10 think leak, 0/10 hallucinations.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s6",
+    "retrieval_cue": "v3 eval results 4.50 zero think leak",
+    "path": "finetune/eval_out/leader_sft_v3.jsonl",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/eval_out/leader_sft_v3.jsonl"
+  },
+  {
+    "id": "v3-summary-doc",
+    "status": "active",
+    "kind": "working",
+    "summary": "v3 vs v2 vs v1 vs base summary + recommendation. Recommends KEEP v3 as final submission.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s6",
+    "retrieval_cue": "v3 summary recommendation keep final submission",
+    "path": "finetune/eval_out/v3_summary.md",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/eval_out/v3_summary.md"
+  },
+  {
     "id": "identity-core",
     "status": "active",
     "kind": "semantic",
