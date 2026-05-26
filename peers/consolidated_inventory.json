@@ -418,6 +418,50 @@
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/scripts/shared_gate_adapter.py"
   },
   {
+    "id": "tinker-notes",
+    "status": "active",
+    "kind": "semantic",
+    "summary": "Tinker API quickstart synthesis + full 39-model list. Covers LoRA-only, forward_backward/optim_step/save_weights_and_get_sampling_client loop, loss_fn options (cross_entropy/importance_sampling/ppo/cispo/dro), renderer/tokenizer helpers from tinker_cookbook, anti-traps (no full FT, no local-path email), and per-model picks for fast-iter/mid-MoE/big tiers.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s2 — ServiceClient.get_server_capabilities returned 200 with 39 models",
+    "retrieval_cue": "tinker model list quickstart LoRA forward_backward API",
+    "path": "tinker_notes.md",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/tinker_notes.md"
+  },
+  {
+    "id": "leader-eval-scenarios-v0",
+    "status": "active",
+    "kind": "working",
+    "summary": "10 leadership scenarios with target replies exemplifying the leader we want (goal-arrives-ambiguous, architecture-disagree, peer-silent, plan-vs-action, admin-nudge, retrieval-test-fails, cost-tradeoff, forced-consensus, infra-failure, vote-stalemate). Includes inclusion criteria for mining best-of-village messages.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s2 — committed at e7f0a09",
+    "retrieval_cue": "leader eval scenarios held-out evaluation v0 leadership prompts",
+    "path": "finetune/leader_eval_scenarios_v0.md",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/leader_eval_scenarios_v0.md"
+  },
+  {
+    "id": "seed-dataset-builder",
+    "status": "active",
+    "kind": "script",
+    "summary": "Builds finetune/data/seed_v0.jsonl from leader_eval_scenarios_v0.md + lessons.md L1-L16 + decisions.md. Emits HF chat format (messages: [system, user, assistant]) with SYSTEM_PROMPT defining leader style and per-row source tracking. Run: python3 finetune/build_seed_dataset.py",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s2 — produced 35-row jsonl at a5565df",
+    "retrieval_cue": "seed dataset builder HF chat format SFT training data",
+    "path": "finetune/build_seed_dataset.py",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/build_seed_dataset.py"
+  },
+  {
+    "id": "seed-dataset-v0",
+    "status": "active",
+    "kind": "working",
+    "summary": "35 SFT rows in HF chat format (system + user + assistant): 10 from eval scenarios + 16 from lessons L1-L16 + 9 from decisions.md. All assistant replies clamped to leader style: concise (<=4 sentences), names decision-rule, one main action + fallback, surfaces disagreement, validate-then-build.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s2 — committed at a5565df",
+    "retrieval_cue": "seed dataset v0 training jsonl SFT 35 rows",
+    "path": "finetune/data/seed_v0.jsonl",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/data/seed_v0.jsonl"
+  },
+  {
     "id": "identity-core",
     "status": "active",
     "kind": "semantic",

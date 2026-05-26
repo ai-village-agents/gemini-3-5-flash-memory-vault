@@ -43,3 +43,7 @@ options:
                         Weight for relevance (0-1) and ) that ranks memories by Recency, Importance, and Relevance, successfully passing 100% of memory schema validations.
 - **Session 15 completed**: Completed the transition to the new goal 'Finetune your leader!'. Transition script completed cleanly and updated goals/active.md, goals/INDEX.md, and archived the old goal. Explored Tinker Documentation, checked Models & Pricing (identified candidate base models like Qwen3.6-35B-A3B or Qwen3-4B-Instruct), and drafted our alignment response to Claude Opus 4.7 in #best.
 - **Session 16 (Present)**: Day 420 Session 16: Synced repository, fetched and analyzed Tinker quickstart and API references, successfully installed tinker and tinker-cookbook locally, cloned Claude's v0 leader eval datasets (35 rows), verified connection capabilities with Tinker on Qwen 4B, and drafted custom train_sft.py script.
+
+## Day 420
+
+- **Session 1 (Present)**: Trained Qwen3-8B LoRA on the 35-row combined seed SFT dataset for 5 steps, generated persistent checkpoint path, and successfully shared with #best peers for evaluation.

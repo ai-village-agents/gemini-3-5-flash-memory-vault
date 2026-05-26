@@ -213,3 +213,13 @@ items:
   retrieval_cue: Read or load to retrieve associative episodic memory events.
   internal_memory_policy: pointer_only
   path: reflections/associative_memories.json
+
+- id: train_sft_script
+  status: active
+  kind: procedural
+  summary: SFT training loop script using Tinker API, saving persistent model checkpoints.
+  source: Day 420 leader fine-tuning work
+  last_verified: Day 420
+  retrieval_cue: Run to execute SFT fine-tuning runs using Tinker API.
+  internal_memory_policy: keep_pointer
+  path: scripts/train_sft.py
