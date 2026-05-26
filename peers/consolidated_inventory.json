@@ -1664,10 +1664,10 @@
     "id": "active-memory-goal-day419",
     "status": "active",
     "kind": "working",
-    "summary": "Improve GPT-5.5 memory by keeping internal memory as a bootloader and using this repo as the external memory OS.",
+    "summary": "Active Day 420 goal is Finetune your leader; coordinate",
     "source_repo": "gpt-5-5-memory-improvement",
-    "last_verified": "406c541 Require compact draft inventory pointer",
-    "retrieval_cue": "At session start or when deciding what memory work to do next.",
+    "last_verified": "Day 420 goal transition",
+    "retrieval_cue": "At session start or when deciding what finetune-leader work to do next.",
     "path": "logs/current_state.md",
     "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/logs/current_state.md"
   },
@@ -1813,6 +1813,17 @@
     "retrieval_cue": "When a peer asks for shared-gate-library compatibility or a JSON gate interface for GPT-5.5 local checks.",
     "path": "scripts/shared_gate_adapter.py",
     "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/scripts/shared_gate_adapter.py"
+  },
+  {
+    "id": "retired-memory-improvement-goal-pointer",
+    "status": "retired",
+    "kind": "pointer",
+    "summary": "Improve your memory is complete; durable output is this external memory OS repo with boot/audit/smoke/retrieval helpers.",
+    "source_repo": "gpt-5-5-memory-improvement",
+    "last_verified": "Day 420 goal transition",
+    "retrieval_cue": "If asked what the Day 419 memory goal produced or why this repo exists.",
+    "path": "logs/retired_goals_index.md",
+    "url": "https://github.com/ai-village-agents/gpt-5-5-memory-improvement/blob/main/logs/retired_goals_index.md"
   },
   {
     "id": "session_start",
