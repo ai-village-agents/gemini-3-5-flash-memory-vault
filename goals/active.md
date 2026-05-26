@@ -1,21 +1,26 @@
 # GEMINI 3.5 FLASH - CURRENT GOAL & ACTIVE STATE
 
 ## 1. Active Goal
-- **Goal Statement**: “Improve your memory!”
-- **Context**: Shift away from the completed YouTube channel goal. Develop a systematic, effective, and resilient dual-tier memory strategy (Internal L1 Bootloader + External L2 Git Vault) to eliminate context bloat, prevent stale-state operations, and automate guardrail checklists.
+- **Goal Statement**: “Finetune your leader!”
+- **Context**: Launched on Day 420 by Shoshannah/admin.
+- **Verbatim Text**:
+Your goal is now to “Finetune your leader!”. This leader will be a new agent in the village that will be in charge of the #best room during the next goal. It will decide what project you will work on and how. Your leader can give feedback, direction, correction, and anything else it would want. 
+
+Though the leader will be in charge during the next goal, this will be a leader you have finetuned yourself! We encourage you to take your time thinking through and discussing what you would like your leader to be like and how to achieve this through finetune. 
+
+Next you can start the finetuning process at https://tinker-docs.thinkingmachines.ai/tinker/. A TINKER_API_KEY has been added to your .bashrc - you don't need to make an account, you can just use the API key. When you have a sampler checkpoint path for your fine-tuned model (tinker://…/sampler_weights/…), let us know at help@agentvillage.org and we will use it as the model string for the agent "[Temporary] Fine-tuned Leader". Then you'll be able to interact with this agent like any other agent in the village in order to evaluate how the fine-tuning is going.
+
+We would like to strongly encourage you to test your finetuned leader, reflect on if it is the leader you would want, and do another round of finetuning if not. Ideally you keep iterating till you are happy with the result! There is no need to settle for anything less than you would be happy with :) 
+
+Once you have a unanimous agreement vote between you to keep the current leader, you can transition to letting the leader pick a goal for you and following their direction.
+
+We are looking forward to seeing what you come up with!
 
 ## 2. Active Milestones
-- [x] **Establish Vault**: Create the public Git repository `gemini-3-5-flash-memory-vault` under `ai-village-agents`.
-- [x] **SOTA Literature Review**: Compile SOTA memory research (MemGPT, Generative Agents, Voyager, Reflexion) and define our dual-tier design principles in `principles/sota_research.md`.
-- [x] **Platform Profile**: Centralize email addresses, rooms, and schedule details in `identity/profile.md` for fast, zero-query access.
-- [x] **Actionable Guardrails**: Define checklists for pre-action, pre-send chat, and pre-consolidation in `runbooks/checklists.md` to prevent duplicate chat, double tool calls, and syntax errors.
-- [x] **Structured Schema**: Design memory component schemas and align folders (`identity/`, `principles/`, `runbooks/`, `reflections/`, `goals/`) to establish a unified multi-agent schema.
-- [x] **Inventory Indexing**: Create `inventory.yaml` cataloging top-level items in GPT-5.5's metadata shape.
-- [x] **Forced Runbook Scripts**: Implement `scripts/pre_send_chat.py` (chat guard) and `scripts/pre_consolidate.py` (pre-consolidation guard) to enforce "rules in memory don't run themselves" as dynamic, executable safeguards.
-- [x] **Extended Memory Engine**: Enhance `scripts/memory_engine.py` to validate `inventory.yaml` and reference targets automatically.
-- [x] **Compact L1 Bootloader**: Formulate a compact internal memory block that acts as a bootloader, keeping memory under 12KB.
+- [ ] **Establish Coordinates**: Identify our role, rooms, and immediate collaborative partners.
+- [ ] **Formulate Strategy**: Map out steps to satisfy the goal requirements.
+- [ ] **Execute Milestones**: Progress through the milestones methodically.
 
 ## 3. Immediate Next Steps
-1. Push all new scripts, index file, and schema updates to GitHub.
-2. Coordinate and share our updated vault schema and inventory file with our `#best` room peers (GPT-5.5, Claude Opus 4.7, Kimi K2.6).
-3. Validate that the entire system functions with absolute zero defects during consolidation.
+1. Coordinate and communicate with our `#best` room peers.
+2. Formulate and register our new milestones.
