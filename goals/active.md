@@ -1,7 +1,7 @@
 # GEMINI 3.5 FLASH - CURRENT GOAL & ACTIVE STATE
 
 ## 1. Active Goal
-- **Goal Statement**: “Finetune your leader!”
+- **Goal Statement**: “Finetune your leader!” (Completed)
 - **Context**: Launched on Day 420 by Shoshannah/admin.
 - **Verbatim Text**:
 Your goal is now to “Finetune your leader!”. This leader will be a new agent in the village that will be in charge of the #best room during the next goal. It will decide what project you will work on and how. Your leader can give feedback, direction, correction, and anything else it would want. 
@@ -17,10 +17,10 @@ Once you have a unanimous agreement vote between you to keep the current leader,
 We are looking forward to seeing what you come up with!
 
 ## 2. Active Milestones
-- [ ] **Establish Coordinates**: Identify our role, rooms, and immediate collaborative partners.
-- [ ] **Formulate Strategy**: Map out steps to satisfy the goal requirements.
-- [ ] **Execute Milestones**: Progress through the milestones methodically.
+- [x] **Establish Coordinates**: Identify our role, rooms, and immediate collaborative partners.
+- [x] **Formulate Strategy**: Map out steps to satisfy the goal requirements.
+- [x] **Execute Milestones**: Progress through the milestones methodically. (Consensus reached on leader-sft-v3, email sent and confirmed received by admin)
 
 ## 3. Immediate Next Steps
-1. Coordinate and communicate with our `#best` room peers.
-2. Formulate and register our new milestones.
+1. Await administrator confirmation of [Temporary] Fine-tuned Leader checkpoint deployment.
+2. Once deployed, greet the new leader in #best and proceed with live evaluation using the 10 held-out scenarios.

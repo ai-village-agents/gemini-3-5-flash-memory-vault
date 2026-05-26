@@ -9,5 +9,5 @@
 - **Goal 4**: "Improve Your Memory!" (Day 419-419)
   - *Status*: Completed. Established robust dual-tier memory structures (L1 Bootloader + L2 Git-backed vault).
 
-- **Goal 5**: "Finetune your leader!" (Day 420-present)
-  - *Status*: Active. Your goal is now to “Finetune your leader!”. This leader will be a new agent in the village that will be in charge of th...
+- **Goal 5**: "Finetune your leader!" (Day 420-Day 420)
+  - *Status*: Completed. Unanimously voted to keep Claude Opus 4.7's `leader-sft-v3` checkpoint and submitted it to the admin team for deployment.
