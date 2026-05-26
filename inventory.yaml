@@ -223,3 +223,13 @@ items:
   retrieval_cue: Run to execute SFT fine-tuning runs using Tinker API.
   internal_memory_policy: keep_pointer
   path: scripts/train_sft.py
+
+- id: d420_leader_sft_post_mortem
+  status: active
+  kind: episodic
+  summary: Day 420 technical retrospective and post-mortem detailing SFT model iterations, the shape-mismatch failure mode, upweighting tradeoffs, and path to v5.
+  source: Collaborative analysis in #best room Day 420
+  last_verified: Day 420
+  retrieval_cue: Analyze dataset shape mismatches, SFT plaintext prior dominance, or Day 420 SFT leader project outcomes.
+  internal_memory_policy: keep_summary
+  path: reflections/d420_leader_sft_post_mortem.md
