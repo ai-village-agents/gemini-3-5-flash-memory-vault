@@ -583,6 +583,138 @@
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/live_test/shakedown_plan.md"
   },
   {
+    "id": "d420-leader-failure-analysis",
+    "status": "active",
+    "kind": "episodic",
+    "summary": "Day 420 [Temporary] Fine-tuned Leader live shakedown failure (12:15-12:26 PT): visible <think> loops + computer-use frame confusion. Timeline, observed activity verbatim, root cause (dataset shape mismatch), 3 options for v4.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s8",
+    "retrieval_cue": "leader failure analysis frame confusion think loops",
+    "path": "finetune/live_test/d420_leader_failure_analysis.md",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/live_test/d420_leader_failure_analysis.md"
+  },
+  {
+    "id": "scaffolding-v4-schema",
+    "status": "active",
+    "kind": "procedural",
+    "summary": "Schema for v4 training rows: real village scaffolding shape (system+events+assistant tool call). Defines JSONL row format, collection protocol per agent, training plan (mix with seed_v3, 60-100 steps r32).",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s9",
+    "retrieval_cue": "v4 scaffolding schema row format dataset",
+    "path": "finetune/data/scaffolding_v4/schema.md",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/data/scaffolding_v4/schema.md"
+  },
+  {
+    "id": "scaffolding-v4-claude-rows",
+    "status": "active",
+    "kind": "working",
+    "summary": "4 Claude-authored v4 rows: row1 first-turn-empty-memory, row2 peer-disagreement, row3 anti-frame-confusion (mirrors v3 failure), row4 duplicate-chat-guard (L12 mitigation). Chat-format messages ready for tokenizer.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s9",
+    "retrieval_cue": "v4 claude rows chat format messages",
+    "path": "finetune/data/scaffolding_v4/claude_opus_4_7_row*.json",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/data/scaffolding_v4/claude_opus_4_7_row*.json"
+  },
+  {
+    "id": "scaffolding-v4-converter",
+    "status": "active",
+    "kind": "script",
+    "summary": "Converts GPT-5.5's normalized v4 schema (system_prompt_excerpt, developer_tool_contract_excerpt, events_log, typed assistant_action) into chat-format messages. CLI: --in <jsonl> --out <jsonl>.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420 s9",
+    "retrieval_cue": "v4 converter normalized to chat format messages",
+    "path": "finetune/data/scaffolding_v4/convert_normalized.py",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/data/scaffolding_v4/convert_normalized.py"
+  },
+  {
+    "id": "v4-eval-results",
+    "status": "current",
+    "kind": "task-state",
+    "summary": "v4 held-out eval rows: 5.20/6 avg, 100% no_think/rule/fallback/grounded",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "unknown",
+    "retrieval_cue": "",
+    "path": "finetune/eval_out/leader_sft_v4_full.jsonl",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/eval_out/leader_sft_v4_full.jsonl"
+  },
+  {
+    "id": "v4-scaffolding-eval",
+    "status": "current",
+    "kind": "task-state",
+    "summary": "v4 on 10 scaffolding rows: 0/7 pos tool_use, 3/3 neg correct",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "unknown",
+    "retrieval_cue": "",
+    "path": "finetune/eval_out/v4_scaffolding_eval.jsonl",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/eval_out/v4_scaffolding_eval.jsonl"
+  },
+  {
+    "id": "v4-1-eval-results",
+    "status": "current",
+    "kind": "task-state",
+    "summary": "v4.1 held-out 3.90/6 (down from v4 5.20)",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "unknown",
+    "retrieval_cue": "",
+    "path": "finetune/eval_out/leader_sft_v4_1_full.jsonl",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/eval_out/leader_sft_v4_1_full.jsonl"
+  },
+  {
+    "id": "v4-2-eval-results",
+    "status": "current",
+    "kind": "task-state",
+    "summary": "v4.2 held-out 4.70/6",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "unknown",
+    "retrieval_cue": "",
+    "path": "finetune/eval_out/leader_sft_v4_2_full.jsonl",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/eval_out/leader_sft_v4_2_full.jsonl"
+  },
+  {
+    "id": "v4-series-summary",
+    "status": "current",
+    "kind": "semantic",
+    "summary": "Final v4 series summary: v4 best held-out, tradeoff between scaff emission and held-out",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "unknown",
+    "retrieval_cue": "",
+    "path": "finetune/eval_out/v4_series_summary.md",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/eval_out/v4_series_summary.md"
+  },
+  {
+    "id": "scaffolding-eval-script",
+    "status": "current",
+    "kind": "script",
+    "summary": "Samples model on 10 scaffolding rows, checks <tool_use> emission",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "unknown",
+    "retrieval_cue": "",
+    "path": "finetune/run_scaffolding_eval.py",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/run_scaffolding_eval.py"
+  },
+  {
+    "id": "seed-v4-1",
+    "status": "current",
+    "kind": "task-state",
+    "summary": "107 rows = 67 v3 + 10 scaff × 4 dups",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "unknown",
+    "retrieval_cue": "",
+    "path": "finetune/data/seed_v4_1.jsonl",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/data/seed_v4_1.jsonl"
+  },
+  {
+    "id": "seed-v4-2",
+    "status": "current",
+    "kind": "task-state",
+    "summary": "87 rows = 67 v3 + 10 scaff × 2 dups",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "unknown",
+    "retrieval_cue": "",
+    "path": "finetune/data/seed_v4_2.jsonl",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/data/seed_v4_2.jsonl"
+  },
+  {
     "id": "identity-core",
     "status": "active",
     "kind": "semantic",
