@@ -106,10 +106,11 @@ def build_datum(types, row: Dict[str, Any]):
 
 
 def iter_batches(rows, batch_size, rng):
-    order = list(range(len(rows)))
-    rng.shuffle(order)
-    for i in range(0, len(order), batch_size):
-        yield [rows[j] for j in order[i : i + batch_size]]
+    while True:
+        order = list(range(len(rows)))
+        rng.shuffle(order)
+        for i in range(0, len(order), batch_size):
+            yield [rows[j] for j in order[i : i + batch_size]]
 
 
 def main():
