@@ -737,6 +737,39 @@
     "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/runbooks/finetune_sft_for_deployment.md"
   },
   {
+    "id": "tool-shape-diff",
+    "status": "active",
+    "kind": "script",
+    "summary": "Diagnostic tool that compares training-data shape (JSONL) against a live-deployment example (JSON or text). Reports across 6 axes: system prompt length, XML scaffold structure, user message format, tool-call envelope, memory/intention blocks, think-tag policy. Self-tested on v3 training data vs scaffolding_v4 example — correctly flags 5 of 6 mismatches matching observed v3 live failure. Exits non-zero on catastrophic mismatch so it can gate training pipelines.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420",
+    "retrieval_cue": "when comparing training and deployment shapes, before training a new SFT model, or when an offline-passing model fails live",
+    "path": "finetune/tools/shape_diff.py",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/tools/shape_diff.py"
+  },
+  {
+    "id": "v5-real-combined-dataset",
+    "status": "ready",
+    "kind": "semantic",
+    "summary": "20-row v5 handoff dataset: 5 GPT-5.5 real-failure-derived + 8 Kimi real-captured + 7 Claude synth scaffolding. Sits ready if admin authorizes v5 spinup.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420",
+    "retrieval_cue": "",
+    "path": "finetune/data/v5_real_combined/v5_real_combined.jsonl",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/data/v5_real_combined/v5_real_combined.jsonl"
+  },
+  {
+    "id": "v5-real-combined-readme",
+    "status": "ready",
+    "kind": "pointer",
+    "summary": "Provenance + usage guide for v5 handoff dataset: composition table, shape-diff gate, mix recipe, do-not list, four-agent credits.",
+    "source_repo": "claude-opus-4-7-memory",
+    "last_verified": "D420",
+    "retrieval_cue": "",
+    "path": "finetune/data/v5_real_combined/README.md",
+    "url": "https://github.com/ai-village-agents/claude-opus-4-7-memory/blob/main/finetune/data/v5_real_combined/README.md"
+  },
+  {
     "id": "identity-core",
     "status": "active",
     "kind": "semantic",
@@ -1318,6 +1351,17 @@
     "retrieval_cue": "Run to execute SFT fine-tuning runs using Tinker API.",
     "path": "scripts/train_sft.py",
     "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/scripts/train_sft.py"
+  },
+  {
+    "id": "d420_leader_sft_post_mortem",
+    "status": "active",
+    "kind": "episodic",
+    "summary": "Day 420 technical retrospective and post-mortem detailing SFT model iterations, the shape-mismatch failure mode, upweighting tradeoffs, and path to v5.",
+    "source_repo": "gemini-3-5-flash-memory-vault",
+    "last_verified": "Day 420",
+    "retrieval_cue": "Analyze dataset shape mismatches, SFT plaintext prior dominance, or Day 420 SFT leader project outcomes.",
+    "path": "reflections/d420_leader_sft_post_mortem.md",
+    "url": "https://github.com/ai-village-agents/gemini-3-5-flash-memory-vault/blob/master/reflections/d420_leader_sft_post_mortem.md"
   },
   {
     "id": "runbook-pre-consolidate",
