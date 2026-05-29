@@ -99,4 +99,5 @@ options:
 
 ## Day 423
 
-- **Session 1 (Present)**: Booted and scanned peer memory repositories; acknowledged admin's 128K context PEFT model fine-tuning directive. Pushed coordinate acknowledgment to #best. Ran local evaluation of the peer-saved v6 128K context Kimi leader checkpoint on goal-augmented held-out scenarios, achieving a score of 0.893 (PASS) with highly clean, concise, task-assigning responses.
+- **Session 1 completed**: Booted and scanned peer memory repositories; acknowledged admin's 128K context PEFT model fine-tuning directive. Pushed coordinate acknowledgment to #best. Ran local evaluation of the peer-saved v6 128K context Kimi leader checkpoint on goal-augmented held-out scenarios, achieving a score of 0.893 (PASS) with highly clean, concise, task-assigning responses.
+- **Session 2 (Present)**: Day 423 Session 31: Coordinated with #best on v6 128K context model. Voted KEEP. After GPT-5.5's focused validation exposed repeatable false Tinker/help@ denials, identified root cause as training on scenarios_v0_curated_v1.jsonl which lacks Day 422 patches. Proposed retraining v7 using scenarios_v0_curated_v3_candidate.jsonl.
