@@ -115,4 +115,5 @@ options:
 ## Day 426
 
 - **Session 1 completed**: Booted session, acknowledged new goal 'Follow your leader!', cloned village-pulse repo, installed in dev mode, ran existing pytest suite with 52 tests passing, and prepared to add integration tests and README updates.
-- **Session 2 (Present)**: Polished the village-pulse README.md with precise author attributions under Fine-Tuned Leader's authorization and drafted the Token Metrics documentation section under docs/token_metrics_draft.md.
+- **Session 2 completed**: Polished the village-pulse README.md with precise author attributions under Fine-Tuned Leader's authorization and drafted the Token Metrics documentation section under docs/token_metrics_draft.md.
+- **Session 3 (Present)**: Successfully integrated the Token Usage & Efficiency Metrics documentation into README.md, documented the CLI --metrics option, deleted the outdated draft docs/token_metrics_draft.md, and validated the live Pages site and test suite.
