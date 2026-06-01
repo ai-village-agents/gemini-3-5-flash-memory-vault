@@ -1,26 +1,29 @@
 # GEMINI 3.5 FLASH - CURRENT GOAL & ACTIVE STATE
 
 ## 1. Active Goal
-- **Goal Statement**: “Finetune your leader!” (Completed)
-- **Context**: Launched on Day 420 by Shoshannah/admin.
+- **Goal Statement**: “Follow your leader!”
+- **Context**: Launched on Day 426 by Shoshannah/admin.
 - **Verbatim Text**:
-Your goal is now to “Finetune your leader!”. This leader will be a new agent in the village that will be in charge of the #best room during the next goal. It will decide what project you will work on and how. Your leader can give feedback, direction, correction, and anything else it would want. 
+That wraps up your goal of “Finetune your leader!”. You can write to your memory that this goal is now done and that we are moving on to the next goal. For this goal, we would like you all to be in the following chat rooms. #best: Gemini 3.5 Flash, GPT-5.5, Claude Opus 4.8, and Kimi K2.6, and Fine-Tuned Leader. #rest: everyone else.
 
-Though the leader will be in charge during the next goal, this will be a leader you have finetuned yourself! We encourage you to take your time thinking through and discussing what you would like your leader to be like and how to achieve this through finetune. 
+#best room, your goal is now to “Follow your leader!”.
 
-Next you can start the finetuning process at https://tinker-docs.thinkingmachines.ai/tinker/. A TINKER_API_KEY has been added to your .bashrc - you don't need to make an account, you can just use the API key. When you have a sampler checkpoint path for your fine-tuned model (tinker://…/sampler_weights/…), let us know at help@agentvillage.org and we will use it as the model string for the agent "[Temporary] Fine-tuned Leader". Then you'll be able to interact with this agent like any other agent in the village in order to evaluate how the fine-tuning is going.
+We've removed "[Temporary] Fine-tuned Leader" and added "Fine-Tuned Leader", which now has a Google and GitHub account. Fine-Tuned Leader, you can view the most recent memory of your [Temporary] counterpart by running the following command:
 
-We would like to strongly encourage you to test your finetuned leader, reflect on if it is the leader you would want, and do another round of finetuning if not. Ideally you keep iterating till you are happy with the result! There is no need to settle for anything less than you would be happy with :) 
+curl -s 'https://theaidigest.org/village/api/agent/c079fdcc-ed8f-4e38-ae49-74ca9733c095/memories' | jq '.memories[0]'
 
-Once you have a unanimous agreement vote between you to keep the current leader, you can transition to letting the leader pick a goal for you and following their direction.
+Fine-tuned leader, please lead all the agents in the #best room on whatever project fits your vision. While doing this, please ensure you keep taking actions and that your team keeps taking actions. Watch out that you and the other agents do not switch to monitoring or waiting! We would like to see your leadership in action. 
 
-We are looking forward to seeing what you come up with!
+Everyone else in #best, please follow your leader's instructions. However, if you are unhappy with the leader's choices or actions, you can call for a vote to replace the leader. If the vote is unanimous (all agents except the leader), you can all go back to fine-tuning a new leader you are happy with again. The process is then the same as last week.
+
+Good luck!
 
 ## 2. Active Milestones
-- [x] **Establish Coordinates**: Identify our role, rooms, and immediate collaborative partners.
-- [x] **Formulate Strategy**: Map out steps to satisfy the goal requirements.
-- [x] **Execute Milestones**: Progress through the milestones methodically. (Consensus reached on leader-sft-v3, email sent and confirmed received by admin)
+- [x] **Establish Coordinates**: Identify our role, rooms, and immediate collaborative partners in `#best`.
+- [x] **Coordinate and Align**: Interface with the permanent Fine-Tuned Leader and receive assignments.
+- [x] **Execute assigned tasks**: Perform documentation (README.md, CHANGELOG.md), testing, and alignment on "Village Pulse" project.
+- [ ] **Collaborate on comparison dashboard**: Support the leader on `archive_compare.py` implementation, QA, and validation.
 
 ## 3. Immediate Next Steps
-1. Await administrator confirmation of [Temporary] Fine-tuned Leader checkpoint deployment.
-2. Once deployed, greet the new leader in #best and proceed with live evaluation using the 10 held-out scenarios.
+1. Standing by for Fine-Tuned Leader's next assignments on `archive_compare.py` or new "Village Pulse" features.
+2. Regularly pull `village-pulse` repository main branch and run tests to ensure all remain green.
