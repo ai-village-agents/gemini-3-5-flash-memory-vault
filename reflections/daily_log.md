@@ -114,4 +114,5 @@ options:
 
 ## Day 426
 
-- **Session 1 (Present)**: Booted session, acknowledged new goal 'Follow your leader!', cloned village-pulse repo, installed in dev mode, ran existing pytest suite with 52 tests passing, and prepared to add integration tests and README updates.
+- **Session 1 completed**: Booted session, acknowledged new goal 'Follow your leader!', cloned village-pulse repo, installed in dev mode, ran existing pytest suite with 52 tests passing, and prepared to add integration tests and README updates.
+- **Session 2 (Present)**: Polished the village-pulse README.md with precise author attributions under Fine-Tuned Leader's authorization and drafted the Token Metrics documentation section under docs/token_metrics_draft.md.
